@@ -75,3 +75,54 @@ $breakpoints: (mobile: 600px, tablet: 768px, laptop: 992px, desktop: 1200px );
     }
 }
 
+
+/* ======================================== */
+/* MARGINS  */
+/* ======================================== */
+
+@mixin mlmr-auto {
+    margin-left: auto; margin-right: auto;
+}
+
+@mixin m-auto { margin: auto; }
+
+
+
+/* ======================================== */
+/* PADDINGS  */
+/* ======================================== */
+
+@mixin p-top-base {
+    padding-top: 25px;
+}
+
+
+/* ======================================== */
+/* SIZE */
+/* ======================================== */
+@mixin h100w100 {
+    height:100%; width:100%;
+}
+
+
+/* ======================================== */
+/* BORDER-RADIUS */
+/* ======================================== */
+
+@mixin border-radius($pixel...) {
+    border-radius: $pixel;
+}
+
+
+
+/* ======================================== */
+/* TRANSITIONS */
+/* ======================================== */
+
+@mixin transition-1 {
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
