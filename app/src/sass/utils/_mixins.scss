@@ -1,0 +1,77 @@
+
+@use "sass:map";
+
+/* ======================================== */
+/* BREAKPOINTS*/
+/* ======================================== */
+$breakpoints: (mobile: 600px, tablet: 768px, laptop: 992px, desktop: 1200px );
+
+/* == up to 600  */
+@mixin max-600px {
+    @media screen and (max-width: map-get($breakpoints, mobile )) {
+        @content;
+        @include transition-1;
+    }
+}
+/* == from 600  */
+@mixin min-600px {
+    @media screen and (min-width: map-get($breakpoints, mobile )) {
+        @content;
+        @include transition-1;
+    }
+}
+
+/* == from 600 to 768 */
+@mixin min600px-max768px {
+    @media screen and (min-width: map-get($breakpoints, mobile )) and (max-width: map-get($breakpoints, tablet )){
+        @content;
+        @include transition-1;
+    }
+}
+
+/* == from 600 to 1200 */
+@mixin min600px-max1200px {
+    @media screen and (min-width: map-get($breakpoints, mobile )) and (max-width: map-get($breakpoints, desktop )){
+        @content;
+        @include transition-1;
+    }
+}
+/* == up to 768  */
+@mixin max-768px {
+    @media screen and (max-width: map-get($breakpoints, tablet )) {
+        @content;
+        @include transition-1;
+    }
+}
+/* == from 768 to  1200  */
+@mixin min768px-max1200px {
+    @media screen and (min-width: map-get($breakpoints, tablet )) and (max-width: map-get($breakpoints, desktop )){
+        @content;
+        @include transition-1;
+    }
+}
+
+/* == up to 992  */
+@mixin max-992px {
+    @media screen and (max-width: map-get($breakpoints, laptop )) {
+        @content;
+        @include transition-1;
+    }
+}
+
+/* == up to 1200  */
+@mixin max-1200px {
+    @media screen and (max-width: map-get($breakpoints, desktop )) {
+        @content;
+        @include transition-1;
+    }
+}
+
+/* == from 1200  */
+@mixin min-1200px {
+    @media screen and (min-width: map-get($breakpoints, desktop )) {
+        @content;
+        @include transition-1;
+    }
+}
+
