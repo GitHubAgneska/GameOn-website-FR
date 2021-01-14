@@ -8,7 +8,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "scss": "sass --watch scss:css"
+    "sass": "sass --watch ./src/scss/main.scss:./src/css/main.css",
+    "prefix": "postcss ./css/main.css --use autoprefixer -d ./css/prefixed/"
   },
   "dependencies": {
     "express": "^4.17.1",
