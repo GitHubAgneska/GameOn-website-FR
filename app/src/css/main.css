@@ -1,3 +1,87 @@
+/* ======================================== */
+/* COLOURS */
+/* ======================================== */
+/* basics */
+/* bg + nav fonts */
+/* form details */
+/* ======================================== */
+/* BREAKPOINTS*/
+/* ======================================== */
+/* == up to 600  */
+/* == from 600  */
+/* == from 600 to 768 */
+/* == from 600 to 1200 */
+/* == up to 768  */
+/* == from 768 to  1200  */
+/* == up to 992  */
+/* == up to 1200  */
+/* == from 1200  */
+/* ======================================== */
+/* MARGINS  */
+/* ======================================== */
+/* ======================================== */
+/* PADDINGS  */
+/* ======================================== */
+/* ======================================== */
+/* SIZE */
+/* ======================================== */
+/* ======================================== */
+/* BORDER-RADIUS */
+/* ======================================== */
+/* ======================================== */
+/* TRANSITIONS */
+/* ======================================== */
+/* ======================================== */
+/* EFFECTS */
+/* ======================================== */
+/* ======================================== */
+/* FLEXBOX */
+/* ======================================== */
+/* ================================== */
+/* Fonts */
+/* ================================== */
+@font-face {
+  font-family: "DMSans-regular";
+  src: url("../assets/fonts/DMSans/DMSans-regular.ttf") format("ttf");
+  src: url("../assets/fonts/DMSans/DMSans-regular.eot") format("eot");
+  src: url("../assets/fonts/DMSans/DMSans-regular.woff") format("woff");
+}
+@font-face {
+  font-family: "DMSans-medium";
+  src: url("../assets/fonts/DMSans/DMSans-medium.ttf") format("ttf");
+  src: url("../assets/fonts/DMSans/DMSans-medium.eot") format("eot");
+  src: url("../assets/fonts/DMSans/DMSans-medium.woff") format("woff");
+}
+@font-face {
+  font-family: "DMSans-bold";
+  src: url("../assets/fonts/DMSans/DMSans-bold.ttf") format("ttf");
+  src: url("../assets/fonts/DMSans/DMSans-bold.eot") format("eot");
+  src: url("../assets/fonts/DMSans/DMSans-bold.woff") format("woff");
+}
+@font-face {
+  font-family: "DMSans-italic";
+  src: url("../assets/fonts/DMSans/DMSans-italic.ttf") format("ttf");
+  src: url("../assets/fonts/DMSans/DMSans-italic.eot") format("eot");
+  src: url("../assets/fonts/DMSans/DMSans-italic.woff") format("woff");
+}
+@font-face {
+  font-family: "DMSans-bold-italic";
+  src: url("../assets/fonts/DMSans/DMSans-bold-italic.ttf") format("ttf");
+  src: url("../assets/fonts/DMSans/DMSans-bold-italic.eot") format("eot");
+  src: url("../assets/fonts/DMSans/DMSans-bold-italic.woff") format("woff");
+}
+@font-face {
+  font-family: "Roboto-regular";
+  src: url("../assets/fonts/roboto/roboto-regular.ttf") format("ttf");
+  src: url("../assets/fonts/roboto/roboto-regular.eot") format("eot");
+  src: url("../assets/fonts/roboto/roboto-regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Roboto-medium";
+  src: url("../assets/fonts/roboto/roboto-medium.ttf") format("ttf");
+  src: url("../assets/fonts/roboto/roboto-medium.eot") format("eot");
+  src: url("../assets/fonts/roboto/roboto-medium.woff") format("woff");
+}
 /* ================================== */
 /* General rules */
 /* ================================== */
@@ -50,5 +134,40 @@ button {
 }
 
 /* h1, h2, h3, h4 {font-weight: normal !important; } */
+/* ================================== */
+/* HEADER */
+/* ================================== */
+.header {
+  height: 80px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.header__logo-wrapper {
+  width: 95px;
+}
+/* =============================================== */
+/* HOMEPAGE FONTS RULES  */
+/* =============================================== */
+/* =============================================== */
+/* ===  HOMEPAGE -  MAIN SECTIONS === */
+/* =============================================== */
+/* PRESENTATION SECTION ===== */
+/* ===================== */
+.presentation__bloc-img {
+  background-color: pink;
+  width: 100%;
+  height: 300px;
+}
+.presentation__bloc-img .img-wrapper {
+  object-fit: contain;
+  overflow: hidden;
+}
+.presentation__bloc-img .img-wrapper picture img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border: 5px solid red;
+}
 
 /*# sourceMappingURL=main.css.map */
