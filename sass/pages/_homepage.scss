@@ -4,12 +4,12 @@
 /* =============================================== */
 
 /* =============================================== */
-/* ===  HOMEPAGE -  MAIN SECTIONS === */
+/* ===  HOMEPAGE -  MAIN SECTIONS RULES === */
 /* =============================================== */
 
 header, section  {
     @include max-600px { margin: 0px 25px 25px 25px; }
-    @include min-600px {margin-left: 100px;margin-right: 100px; }
+    @include min-600px { margin-left: 100px; margin-right: 100px; }
 }
 header { 
     @include max-600px { padding-top: 30px; }
@@ -18,7 +18,10 @@ header {
 .homepage-content-wrapper {
     @include min-600px { margin-bottom: 100px;}
 }
-footer { @include min-600px { margin-bottom: 60px;} }
+footer { 
+    @include min-600px { margin-bottom: 60px; margin-left: 40px;}
+    @include max-600px { margin-left: 25px; margin-right: 25px; text-align: center;}
+}
 
 
 
@@ -59,4 +62,11 @@ footer { @include min-600px { margin-bottom: 60px;} }
             }
         }
     }
+}
+
+
+/* SIGN-UP SECTION ===== */
+/* ===================== */
+.signup { 
+    &__btn-wrapper button { @include mlmr-auto; }
 }

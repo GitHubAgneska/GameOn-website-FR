@@ -137,6 +137,25 @@ button {
 }
 
 /* h1, h2, h3, h4 {font-weight: normal !important; } */
+.main-btn {
+  height: 30px;
+  padding: 0% 12%;
+  /*  @include border-radius(15px); */
+  background: #FE142F;
+  color: #fff;
+  font-size: 1.5rem;
+  /* @include box-shadow; */
+}
+.main-btn:hover {
+  background: #ab0114;
+  box-shadow: 0px 12px 10px #707070;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
 /* ================================== */
 /* HEADER */
 /* ================================== */
@@ -153,7 +172,7 @@ button {
 /* HOMEPAGE FONTS RULES  */
 /* =============================================== */
 /* =============================================== */
-/* ===  HOMEPAGE -  MAIN SECTIONS === */
+/* ===  HOMEPAGE -  MAIN SECTIONS RULES === */
 /* =============================================== */
 @media screen and (max-width: 600px) {
   header, section {
@@ -213,6 +232,19 @@ button {
 @media screen and (min-width: 600px) {
   footer {
     margin-bottom: 60px;
+    margin-left: 40px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (max-width: 600px) {
+  footer {
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -296,6 +328,13 @@ button {
   max-width: 100%;
   display: block;
   border: 5px solid red;
+}
+
+/* SIGN-UP SECTION ===== */
+/* ===================== */
+.signup__btn-wrapper button {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*# sourceMappingURL=main.css.map */
