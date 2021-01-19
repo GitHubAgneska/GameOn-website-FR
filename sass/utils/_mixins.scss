@@ -104,6 +104,16 @@ $breakpoints: (mobile: 600px, tablet: 768px, laptop: 992px, desktop: 1200px );
     height:100%; width:100%;
 }
 
+/* ======================================== */
+/* POSITION */
+/* ======================================== */
+@mixin centered {
+    display: flex;
+    flex-flow: column nowrap;        
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* ======================================== */
 /* BORDER-RADIUS */
