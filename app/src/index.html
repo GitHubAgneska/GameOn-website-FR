@@ -5,20 +5,26 @@
     <title>Game-a-Thon homepage</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="./css/main.css" />
+    <!-- Font awesome cdn -->
+    <script src="https://kit.fontawesome.com/711ecd1ff8.js" crossorigin="anonymous"></script>
   </head>
   <body>
 
     <header>
       <div class="header">
         <div class="header__logo-wrapper">
-          <img src="assets/logo/logo_S.png" alt="logo">
+          <img src="assets/logo/logo_S.png" 
+          srcset="assets/logo/logo_M.png 600w,
+                  assets/logo/logo_L.png 1000w"
+          sizes="(max-width: 1100px) 100vw, 1100px,calc(95vw - 1.375em)"
+          alt="logo">
         </div>
         <nav class="header__nav">
           <a href="">Event details</a>
           <a href="">About us</a>
           <a href="">Contact</a>
           <a href="">Past events</a>
-          <a href=""></a>
+          <a href="" class="burger"><i class="fas fa-bars"></i></a>
         </nav>
       </div>
     </header>

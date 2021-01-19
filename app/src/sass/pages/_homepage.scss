@@ -29,8 +29,19 @@ footer { @include min-600px { margin-bottom: 60px;} }
         @include max-600px { width: 95px; height:25px }
         img { @include centered; max-width: 100%; }
     }
-}
+    &__nav { 
+        @include min-600px { @include flex-row-nowrap; }
 
+        .burger { 
+             /* after 600px : burger menu = not visible */
+            @include min-600px { display: none; } 
+            i { @include icon-base; @include icon-size; }
+        }
+
+        /* mobile: nav elements = not visible */
+        a:not(.burger) { @include max-600px { display: none; } }
+    }
+}
 
 /* PRESENTATION SECTION ===== */
 /* ===================== */

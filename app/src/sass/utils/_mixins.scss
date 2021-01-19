@@ -104,6 +104,16 @@ $breakpoints: (mobile: 600px, tablet: 768px, laptop: 992px, desktop: 1200px );
     height:100%; width:100%;
 }
 
+@mixin icon-base {
+    display: flex;
+    flex-flow: column nowrap;        
+    justify-content: center;
+    align-items: center;
+}
+@mixin icon-size( $size: 1.3rem ) { 
+    font-size: $size;
+}
+
 /* ======================================== */
 /* POSITION */
 /* ======================================== */
@@ -112,6 +122,11 @@ $breakpoints: (mobile: 600px, tablet: 768px, laptop: 992px, desktop: 1200px );
     flex-flow: column nowrap;        
     justify-content: center;
     align-items: center;
+}
+
+@mixin flex-row-nowrap {
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 
