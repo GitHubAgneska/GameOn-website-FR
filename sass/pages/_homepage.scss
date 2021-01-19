@@ -3,6 +3,18 @@
 /* HOMEPAGE FONTS RULES  */
 /* =============================================== */
 
+h1, h2 { font-weight: normal;}
+h1 {
+    font-family:'DMSans-medium';
+    font-size: 3.5rem;
+    @include max-600px { margin: 10px 0px; } 
+}
+h2 {
+    font-family:'DMSans-regular';
+    font-size: 0.9rem;
+    @include max-600px { margin: 20px 0px; } 
+}
+
 /* =============================================== */
 /* ===  HOMEPAGE -  MAIN SECTIONS RULES === */
 /* =============================================== */
@@ -24,30 +36,9 @@ footer {
 }
 
 
-
-/* HEADER ===== */
-/* ===================== */
-.header {
-    &__logo-wrapper {
-        @include max-600px { width: 95px; height:25px }
-        img { @include centered; max-width: 100%; }
-    }
-    &__nav { 
-        @include min-600px { @include flex-row-nowrap; }
-
-        .burger { 
-             /* after 600px : burger menu = not visible */
-            @include min-600px { display: none; } 
-            i { @include icon-base; @include icon-size; }
-        }
-
-        /* mobile: nav elements = not visible */
-        a:not(.burger) { @include max-600px { display: none; } }
-    }
-}
-
+/* =============================================== */
 /* PRESENTATION SECTION ===== */
-/* ===================== */
+/* =============================================== */
 .presentation {
 
     &__bloc-img {
@@ -58,15 +49,15 @@ footer {
             picture img {
                 max-width: 100%;
                 display: block;
-                border:5px solid red;
+                border-radius: 5px;
             }
         }
     }
 }
 
-
+/* =============================================== */
 /* SIGN-UP SECTION ===== */
-/* ===================== */
+/* =============================================== */
 .signup { 
     &__btn-wrapper button { @include mlmr-auto; }
 }

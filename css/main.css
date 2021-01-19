@@ -137,13 +137,16 @@ button {
 }
 
 /* h1, h2, h3, h4 {font-weight: normal !important; } */
+/* =============================================== */
+/* MAIN BUTTON ===== */
+/* =============================================== */
 .main-btn {
-  height: 30px;
-  padding: 0% 12%;
-  /*  @include border-radius(15px); */
+  padding: 3% 12%;
+  border-radius: 8px;
   background: #FE142F;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  text-transform: capitalize;
   /* @include box-shadow; */
 }
 .main-btn:hover {
@@ -160,17 +163,118 @@ button {
 /* HEADER */
 /* ================================== */
 .header {
-  height: 80px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
 }
-.header__logo-wrapper {
-  width: 95px;
+@media screen and (max-width: 600px) {
+  .header__logo-wrapper {
+    width: 95px;
+    height: 25px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
 }
+.header__logo-wrapper img {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+.header__nav {
+  /* mobile: nav elements = not visible */
+}
+@media screen and (min-width: 600px) {
+  .header__nav {
+    display: flex;
+    flex-flow: row nowrap;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+.header__nav .burger {
+  /* after 600px : burger menu = not visible */
+}
+@media screen and (min-width: 600px) {
+  .header__nav .burger {
+    display: none;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+.header__nav .burger i {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+@media screen and (max-width: 600px) {
+  .header__nav a:not(.burger) {
+    display: none;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+
+/* =============================================== */
+/* FOOTER ===== */
+/* =============================================== */
+.copyright-wrapper p {
+  font-family: Roboto-regular;
+  color: #FE142F;
+}
+
 /* =============================================== */
 /* HOMEPAGE FONTS RULES  */
 /* =============================================== */
+h1, h2 {
+  font-weight: normal;
+}
+
+h1 {
+  font-family: "DMSans-medium";
+  font-size: 3.5rem;
+}
+@media screen and (max-width: 600px) {
+  h1 {
+    margin: 10px 0px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+
+h2 {
+  font-family: "DMSans-regular";
+  font-size: 0.9rem;
+}
+@media screen and (max-width: 600px) {
+  h2 {
+    margin: 20px 0px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+
 /* =============================================== */
 /* ===  HOMEPAGE -  MAIN SECTIONS RULES === */
 /* =============================================== */
@@ -253,73 +357,9 @@ button {
   }
 }
 
-/* HEADER ===== */
-/* ===================== */
-@media screen and (max-width: 600px) {
-  .header__logo-wrapper {
-    width: 95px;
-    height: 25px;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
-}
-.header__logo-wrapper img {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  max-width: 100%;
-}
-.header__nav {
-  /* mobile: nav elements = not visible */
-}
-@media screen and (min-width: 600px) {
-  .header__nav {
-    display: flex;
-    flex-flow: row nowrap;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
-}
-.header__nav .burger {
-  /* after 600px : burger menu = not visible */
-}
-@media screen and (min-width: 600px) {
-  .header__nav .burger {
-    display: none;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
-}
-.header__nav .burger i {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.3rem;
-}
-@media screen and (max-width: 600px) {
-  .header__nav a:not(.burger) {
-    display: none;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
-}
-
+/* =============================================== */
 /* PRESENTATION SECTION ===== */
-/* ===================== */
+/* =============================================== */
 .presentation__bloc-img .img-wrapper {
   /*          object-fit: contain;
               overflow:hidden; */
@@ -327,11 +367,12 @@ button {
 .presentation__bloc-img .img-wrapper picture img {
   max-width: 100%;
   display: block;
-  border: 5px solid red;
+  border-radius: 5px;
 }
 
+/* =============================================== */
 /* SIGN-UP SECTION ===== */
-/* ===================== */
+/* =============================================== */
 .signup__btn-wrapper button {
   margin-left: auto;
   margin-right: auto;
