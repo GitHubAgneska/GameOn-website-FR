@@ -5,17 +5,17 @@
 
 h1, h2 { font-weight: normal;}
 h1 {
-    @include max-600px { margin: 10px 0px; }
-    @include min600px-max992px { margin: 5px 0px; }
     font-family:'DMSans-medium';
     font-size: 12vw;
+    @include max-600px { margin: 10px 0px; }
+    @include min600px-max992px { margin: 5px 0px; }
     @include min-992px {font-size: 96px; } /* max size */
 }
 h2 {
     font-family:'DMSans-regular';
     font-size: 3vw;
-    @include min-992px {font-size: 24px; } /* max size */
     @include max-600px { margin: 20px 0px; } 
+    @include min-992px {font-size: 24px; } /* max size */
 }
 nav a { 
     font-family:'DMSans-regular';
@@ -58,31 +58,29 @@ footer {
 
     &__page-title { 
        /* display: inline-block;  - gives a shrink-to-fit width, up to specified max-width value. */
-        max-width: 100%;
+        max-width: 100%; /* useful ? */
     }
     &__page-title, &__page-subtitle {
         @include min-600px { color: $white; }
+        @include min-768px { margin-left: 50px; }
     }
 
-    &__bloc-img {
-
+    &__bloc-img { 
         @include min-768px {
+            /* block image goes to content bg */
             width:100%;
-            position: absolute;
-            top:80px;
+            position: absolute; 
+            top: 0;
             z-index:-1;
-            display:flex; flex-flow:row nowrap;
-            justify-content: space-between;
+            background-color: $dark; /* + dark block on img left */
         }
-        /* .dark-block {@include min-768px { background-color: $dark; width:40%;} } */
-        .img-wrapper {
-            @include min-768px { background-color: $dark; }
-            picture img {
-                max-width: 100%;
-                display: block;
-                border-radius: 5px;
-                @include min-768px { max-width:60%; object-position: right;}
-            }
+        /* force img to the right */
+        picture { @include min-768px {display: flex; flex-direction: row-reverse;}}
+        picture img {
+            max-width: 100%;
+            display: block;
+            border-radius: 5px;
+            @include min-768px { max-width:60%;}
         }
     }
 }
@@ -90,7 +88,10 @@ footer {
 /* =============================================== */
 /* SIGN-UP SECTION ===== */
 /* =============================================== */
-.signup { 
+.signup {
+    &__btn-wrapper {
+        @include min-768px { margin-left: 50px; } 
+    }
     &__btn-wrapper button {
         @include max-1200px {@include mlmr-auto;}}
 }

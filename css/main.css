@@ -294,6 +294,19 @@ button {
 /* =============================================== */
 /* FOOTER ===== */
 /* =============================================== */
+@media screen and (min-width: 768px) {
+  footer {
+    position: absolute;
+    bottom: 0;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+
+/* because of main img absolute position */
 .copyright-wrapper p {
   font-family: Roboto-regular;
   color: #FE142F;
@@ -510,6 +523,7 @@ header, section {
 .presentation__page-title {
   /* display: inline-block;  - gives a shrink-to-fit width, up to specified max-width value. */
   max-width: 100%;
+  /* useful ? */
 }
 @media screen and (min-width: 600px) {
   .presentation__page-title, .presentation__page-subtitle {
@@ -521,18 +535,28 @@ header, section {
     -o-transition: all 1s ease-in-out;
   }
 }
+@media screen and (min-width: 768px) {
+  .presentation__page-title, .presentation__page-subtitle {
+    margin-left: 50px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
 .presentation__bloc-img {
-  /* .dark-block {@include min-768px { background-color: $dark; width:40%;} } */
+  /* force img to the right */
 }
 @media screen and (min-width: 768px) {
   .presentation__bloc-img {
+    /* block image goes to content bg */
     width: 100%;
     position: absolute;
-    top: 80px;
+    top: 0;
     z-index: -1;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+    background-color: #232323;
+    /* + dark block on img left */
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -541,8 +565,9 @@ header, section {
   }
 }
 @media screen and (min-width: 768px) {
-  .presentation__bloc-img .img-wrapper {
-    background-color: #232323;
+  .presentation__bloc-img picture {
+    display: flex;
+    flex-direction: row-reverse;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -550,15 +575,14 @@ header, section {
     -o-transition: all 1s ease-in-out;
   }
 }
-.presentation__bloc-img .img-wrapper picture img {
+.presentation__bloc-img picture img {
   max-width: 100%;
   display: block;
   border-radius: 5px;
 }
 @media screen and (min-width: 768px) {
-  .presentation__bloc-img .img-wrapper picture img {
+  .presentation__bloc-img picture img {
     max-width: 60%;
-    object-position: right;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -570,6 +594,16 @@ header, section {
 /* =============================================== */
 /* SIGN-UP SECTION ===== */
 /* =============================================== */
+@media screen and (min-width: 768px) {
+  .signup__btn-wrapper {
+    margin-left: 50px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
 @media screen and (max-width: 1200px) {
   .signup__btn-wrapper button {
     margin-left: auto;
