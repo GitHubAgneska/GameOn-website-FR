@@ -57,9 +57,17 @@ $breakpoints: (xs-mobile: 375px, mobile: 600px, tablet: 768px, laptop: 992px, de
         @include transition(1s);
     }
 }
+
 /* == up to 768  */
 @mixin max-768px {
     @media screen and (max-width: map-get($breakpoints, tablet )) {
+        @content;
+        @include transition(1s);
+    }
+}
+/* == from 768  */
+@mixin min-768px {
+    @media screen and (min-width: map-get($breakpoints, tablet )) {
         @content;
         @include transition(1s);
     }

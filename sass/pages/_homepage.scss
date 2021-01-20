@@ -5,7 +5,8 @@
 
 h1, h2 { font-weight: normal;}
 h1 {
-    @include max-600px { margin: 10px 0px; } 
+    @include max-600px { margin: 10px 0px; }
+    @include min600px-max992px { margin: 5px 0px; }
     font-family:'DMSans-medium';
     font-size: 12vw;
     @include min-992px {font-size: 96px; } /* max size */
@@ -36,7 +37,8 @@ header, section  {
 }
 header { 
     @include max-600px { padding-top: 30px; }
-    @include min-600px { padding-top: 50px; margin-bottom: 80px;}
+    @include min-600px { padding-top: 50px; }
+    @include min-992px { margin-bottom: 80px;}
 }
 .homepage-content-wrapper {
     @include min-600px { margin-bottom: 100px;}
@@ -51,22 +53,35 @@ footer {
 /* PRESENTATION SECTION ===== */
 /* =============================================== */
 .presentation {
+    position: relative;
+    @include min600px-max768px{ background-color: $dark;}
 
     &__page-title { 
-        background-color: pink;
        /* display: inline-block;  - gives a shrink-to-fit width, up to specified max-width value. */
         max-width: 100%;
+    }
+    &__page-title, &__page-subtitle {
+        @include min-600px { color: $white; }
     }
 
     &__bloc-img {
 
+        @include min-768px {
+            width:100%;
+            position: absolute;
+            top:80px;
+            z-index:-1;
+            display:flex; flex-flow:row nowrap;
+            justify-content: space-between;
+        }
+        /* .dark-block {@include min-768px { background-color: $dark; width:40%;} } */
         .img-wrapper {
-/*          object-fit: contain;
-            overflow:hidden; */
+            @include min-768px { background-color: $dark; }
             picture img {
                 max-width: 100%;
                 display: block;
                 border-radius: 5px;
+                @include min-768px { max-width:60%; object-position: right;}
             }
         }
     }
@@ -76,5 +91,6 @@ footer {
 /* SIGN-UP SECTION ===== */
 /* =============================================== */
 .signup { 
-    &__btn-wrapper button { @include mlmr-auto; }
+    &__btn-wrapper button {
+        @include max-1200px {@include mlmr-auto;}}
 }
