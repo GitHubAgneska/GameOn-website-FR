@@ -15,6 +15,7 @@
 /* == from 600 to 992 */
 /* == from 600 to 1200 */
 /* == up to 768  */
+/* == from 768  */
 /* == from 768 to 992  */
 /* == from 768 to 1200  */
 /* == from 992  */
@@ -240,12 +241,13 @@ button {
   }
 }
 .header__nav .burger i {
+  color: #FE142F;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   /* xs-viewport: burger icon = 18px */
-  /* xs-viewport onwards : burger icon = up to 40px */
+  /* xs-viewport onwards : burger icon = 5% viewport */
 }
 @media screen and (max-width: 375px) {
   .header__nav .burger i {
@@ -312,6 +314,16 @@ h1 {
 @media screen and (max-width: 600px) {
   h1 {
     margin: 10px 0px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 992px) {
+  h1 {
+    margin: 5px 0px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -426,6 +438,15 @@ header, section {
 @media screen and (min-width: 600px) {
   header {
     padding-top: 50px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 992px) {
+  header {
     margin-bottom: 80px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
@@ -473,28 +494,92 @@ header, section {
 /* =============================================== */
 /* PRESENTATION SECTION ===== */
 /* =============================================== */
+.presentation {
+  position: relative;
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .presentation {
+    background-color: #232323;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
 .presentation__page-title {
-  background-color: pink;
-  display: inline-block;
-  /* gives a shrink-to-fit width up to specified max-width value. */
+  /* display: inline-block;  - gives a shrink-to-fit width, up to specified max-width value. */
   max-width: 100%;
 }
-.presentation__bloc-img .img-wrapper {
-  /*          object-fit: contain;
-              overflow:hidden; */
+@media screen and (min-width: 600px) {
+  .presentation__page-title, .presentation__page-subtitle {
+    color: #fff;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+.presentation__bloc-img {
+  /* .dark-block {@include min-768px { background-color: $dark; width:40%;} } */
+}
+@media screen and (min-width: 768px) {
+  .presentation__bloc-img {
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    z-index: -1;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 768px) {
+  .presentation__bloc-img .img-wrapper {
+    background-color: #232323;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
 }
 .presentation__bloc-img .img-wrapper picture img {
   max-width: 100%;
   display: block;
   border-radius: 5px;
 }
+@media screen and (min-width: 768px) {
+  .presentation__bloc-img .img-wrapper picture img {
+    max-width: 60%;
+    object-position: right;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
 
 /* =============================================== */
 /* SIGN-UP SECTION ===== */
 /* =============================================== */
-.signup__btn-wrapper button {
-  margin-left: auto;
-  margin-right: auto;
+@media screen and (max-width: 1200px) {
+  .signup__btn-wrapper button {
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

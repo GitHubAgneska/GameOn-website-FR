@@ -21,6 +21,7 @@
              /* after 992px : burger menu = not visible */
             @include min-992px { display: none; } 
             i { 
+                color: $red-main;
                 @include icon-base;
                 /* xs-viewport: burger icon = 18px */
                 @include max-375px { @include icon-size; }
