@@ -5,14 +5,21 @@
 
 h1, h2 { font-weight: normal;}
 h1 {
-    font-family:'DMSans-medium';
-    font-size: 3.5rem;
     @include max-600px { margin: 10px 0px; } 
+    font-family:'DMSans-medium';
+    font-size: 12vw;
+    @include min-992px {font-size: 96px; } /* max size */
 }
 h2 {
     font-family:'DMSans-regular';
-    font-size: 0.9rem;
+    font-size: 3vw;
+    @include min-992px {font-size: 24px; } /* max size */
     @include max-600px { margin: 20px 0px; } 
+}
+nav a { 
+    font-family:'DMSans-regular';
+    font-size: 2vw;
+    @include min-992px {font-size: 18px; } /* max size */
 }
 
 /* =============================================== */
@@ -20,8 +27,12 @@ h2 {
 /* =============================================== */
 
 header, section  {
-    @include max-600px { margin: 0px 25px 25px 25px; }
-    @include min-600px { margin-left: 100px; margin-right: 100px; }
+    /* for viewport 375: 25px = 0.66vw */
+    @include max-600px { margin: 0vw 6.66vw 6.66vw 6.66vw; }
+    /* for viewport 600: 50px = 8.33vw */
+    @include min600px-max992px { margin-left: 8.33vw; margin-right: 8.33vw; }
+    /* for viewport 992: 100px = 13vw */
+    @include min-992px { margin-left: 13vw; margin-right: 13vw; }
 }
 header { 
     @include max-600px { padding-top: 30px; }
@@ -40,6 +51,12 @@ footer {
 /* PRESENTATION SECTION ===== */
 /* =============================================== */
 .presentation {
+
+    &__page-title { 
+        background-color: pink;
+       /* display: inline-block;  - gives a shrink-to-fit width, up to specified max-width value. */
+        max-width: 100%;
+    }
 
     &__bloc-img {
 

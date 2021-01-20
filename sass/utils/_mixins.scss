@@ -4,8 +4,22 @@
 /* ======================================== */
 /* BREAKPOINTS*/
 /* ======================================== */
-$breakpoints: (mobile: 600px, tablet: 768px, laptop: 992px, desktop: 1200px );
+$breakpoints: (xs-mobile: 375px, mobile: 600px, tablet: 768px, laptop: 992px, desktop: 1200px );
 
+/* == up to 375  */
+@mixin max-375px {
+    @media screen and (max-width: map-get($breakpoints, xs-mobile )) {
+        @content;
+        @include transition(1s);
+    }
+}
+/* == from 375  */
+@mixin min-375px {
+    @media screen and (min-width: map-get($breakpoints, xs-mobile )) {
+        @content;
+        @include transition(1s);
+    }
+}
 /* == up to 600  */
 @mixin max-600px {
     @media screen and (max-width: map-get($breakpoints, mobile )) {
@@ -28,6 +42,13 @@ $breakpoints: (mobile: 600px, tablet: 768px, laptop: 992px, desktop: 1200px );
         @include transition(1s);
     }
 }
+/* == from 600 to 992 */
+@mixin min600px-max992px {
+    @media screen and (min-width: map-get($breakpoints, mobile )) and (max-width: map-get($breakpoints, laptop )){
+        @content;
+        @include transition(1s);
+    }
+}
 
 /* == from 600 to 1200 */
 @mixin min600px-max1200px {
@@ -43,7 +64,14 @@ $breakpoints: (mobile: 600px, tablet: 768px, laptop: 992px, desktop: 1200px );
         @include transition(1s);
     }
 }
-/* == from 768 to  1200  */
+/* == from 768 to 992  */
+@mixin min768px-max992px {
+    @media screen and (min-width: map-get($breakpoints, tablet )) and (max-width: map-get($breakpoints, laptop )){
+        @content;
+        @include transition(1s);
+    }
+}
+/* == from 768 to 1200  */
 @mixin min768px-max1200px {
     @media screen and (min-width: map-get($breakpoints, tablet )) and (max-width: map-get($breakpoints, desktop )){
         @content;
@@ -51,6 +79,13 @@ $breakpoints: (mobile: 600px, tablet: 768px, laptop: 992px, desktop: 1200px );
     }
 }
 
+/* == from 992  */
+@mixin min-992px {
+    @media screen and (min-width: map-get($breakpoints, laptop )) {
+        @content;
+        @include transition(1s);
+    }
+}
 /* == up to 992  */
 @mixin max-992px {
     @media screen and (max-width: map-get($breakpoints, laptop )) {

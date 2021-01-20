@@ -7,12 +7,17 @@
 /* ======================================== */
 /* BREAKPOINTS*/
 /* ======================================== */
+/* == up to 375  */
+/* == from 375  */
 /* == up to 600  */
 /* == from 600  */
 /* == from 600 to 768 */
+/* == from 600 to 992 */
 /* == from 600 to 1200 */
 /* == up to 768  */
-/* == from 768 to  1200  */
+/* == from 768 to 992  */
+/* == from 768 to 1200  */
+/* == from 992  */
 /* == up to 992  */
 /* == up to 1200  */
 /* == from 1200  */
@@ -168,9 +173,31 @@ button {
   justify-content: space-between;
 }
 @media screen and (max-width: 600px) {
+  .header {
+    height: 25px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 600px) {
+  .header {
+    height: 50px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+.header__logo-wrapper {
+  width: 25%;
+}
+@media screen and (max-width: 600px) {
   .header__logo-wrapper {
     width: 95px;
-    height: 25px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -186,9 +213,9 @@ button {
   max-width: 100%;
 }
 .header__nav {
-  /* mobile: nav elements = not visible */
+  /* after 992px : nav elements in row */
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 992px) {
   .header__nav {
     display: flex;
     flex-flow: row nowrap;
@@ -200,9 +227,9 @@ button {
   }
 }
 .header__nav .burger {
-  /* after 600px : burger menu = not visible */
+  /* after 992px : burger menu = not visible */
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 992px) {
   .header__nav .burger {
     display: none;
     transition: all 1s ease-in-out;
@@ -217,9 +244,35 @@ button {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  font-size: 1.3rem;
+  /* xs-viewport: burger icon = 18px */
+  /* xs-viewport onwards : burger icon = up to 40px */
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 375px) {
+  .header__nav .burger i {
+    font-size: 1.3rem;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 375px) {
+  .header__nav .burger i {
+    font-size: 5vw;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+.header__nav a:not(.burger) {
+  /* mobile/tablet : nav elements = not visible */
+  padding: 12px 16px;
+  margin: auto;
+}
+@media screen and (max-width: 992px) {
   .header__nav a:not(.burger) {
     display: none;
     transition: all 1s ease-in-out;
@@ -228,6 +281,12 @@ button {
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
   }
+}
+.header__nav a.active {
+  background-color: #FE142F;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: underline;
 }
 
 /* =============================================== */
@@ -247,7 +306,8 @@ h1, h2 {
 
 h1 {
   font-family: "DMSans-medium";
-  font-size: 3.5rem;
+  font-size: 12vw;
+  /* max size */
 }
 @media screen and (max-width: 600px) {
   h1 {
@@ -259,10 +319,31 @@ h1 {
     -o-transition: all 1s ease-in-out;
   }
 }
+@media screen and (min-width: 992px) {
+  h1 {
+    font-size: 96px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
 
 h2 {
   font-family: "DMSans-regular";
-  font-size: 0.9rem;
+  font-size: 3vw;
+  /* max size */
+}
+@media screen and (min-width: 992px) {
+  h2 {
+    font-size: 24px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
 }
 @media screen and (max-width: 600px) {
   h2 {
@@ -275,12 +356,14 @@ h2 {
   }
 }
 
-/* =============================================== */
-/* ===  HOMEPAGE -  MAIN SECTIONS RULES === */
-/* =============================================== */
-@media screen and (max-width: 600px) {
-  header, section {
-    margin: 0px 25px 25px 25px;
+nav a {
+  font-family: "DMSans-regular";
+  font-size: 2vw;
+  /* max size */
+}
+@media screen and (min-width: 992px) {
+  nav a {
+    font-size: 18px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -288,10 +371,40 @@ h2 {
     -o-transition: all 1s ease-in-out;
   }
 }
-@media screen and (min-width: 600px) {
+
+/* =============================================== */
+/* ===  HOMEPAGE -  MAIN SECTIONS RULES === */
+/* =============================================== */
+header, section {
+  /* for viewport 375: 25px = 0.66vw */
+  /* for viewport 600: 50px = 8.33vw */
+  /* for viewport 992: 100px = 13vw */
+}
+@media screen and (max-width: 600px) {
   header, section {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 0vw 6.66vw 6.66vw 6.66vw;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 992px) {
+  header, section {
+    margin-left: 8.33vw;
+    margin-right: 8.33vw;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 992px) {
+  header, section {
+    margin-left: 13vw;
+    margin-right: 13vw;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -360,6 +473,12 @@ h2 {
 /* =============================================== */
 /* PRESENTATION SECTION ===== */
 /* =============================================== */
+.presentation__page-title {
+  background-color: pink;
+  display: inline-block;
+  /* gives a shrink-to-fit width up to specified max-width value. */
+  max-width: 100%;
+}
 .presentation__bloc-img .img-wrapper {
   /*          object-fit: contain;
               overflow:hidden; */
