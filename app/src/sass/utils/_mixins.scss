@@ -170,6 +170,11 @@ $breakpoints: (xs-mobile: 375px, mobile: 600px, tablet: 768px, laptop: 992px, de
     flex-flow: row nowrap;
 }
 
+@mixin flex-col-nowrap {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 
 /* ======================================== */
 /* BORDER-RADIUS */

@@ -312,6 +312,33 @@ button {
   color: #FE142F;
 }
 
+/* ================================== */
+/* SIGN-UP MODAL */
+/* ================================== */
+.signUp-modal-wrapper {
+  background-color: lightcoral;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+.signUp-modal-wrapper__fields-wrapper {
+  width: 50%;
+  height: 80%;
+  margin: auto;
+  background-color: grey;
+}
+.signUp-modal-wrapper__fields-wrapper form {
+  display: flex;
+  flex-flow: column nowrap;
+  font-family: Roboto;
+  color: #fff;
+}
+.signUp-modal-wrapper__fields-wrapper form input {
+  background-color: #fff;
+}
+
 /* =============================================== */
 /* HOMEPAGE FONTS RULES  */
 /* =============================================== */
@@ -360,9 +387,9 @@ h2 {
   font-size: 3vw;
   /* max size */
 }
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 600px) {
   h2 {
-    font-size: 24px;
+    margin: 20px 0px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -370,9 +397,9 @@ h2 {
     -o-transition: all 1s ease-in-out;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 992px) {
   h2 {
-    margin: 20px 0px;
+    font-size: 24px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;

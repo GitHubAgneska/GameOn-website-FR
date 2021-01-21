@@ -59,6 +59,7 @@ footer {
     &__page-title { 
        /* display: inline-block;  - gives a shrink-to-fit width, up to specified max-width value. */
         max-width: 100%; /* useful ? */
+        
     }
     &__page-title, &__page-subtitle {
         @include min-600px { color: $white; }
