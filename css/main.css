@@ -113,7 +113,7 @@ html {
 
 body {
   margin: auto;
-  height: 100%;
+  height: 100vh;
 }
 
 a {
@@ -147,13 +147,44 @@ button {
 /* MAIN BUTTON ===== */
 /* =============================================== */
 .main-btn {
-  padding: 3% 12%;
+  padding: 0% 12%;
   border-radius: 8px;
   background: #FE142F;
   color: #fff;
   font-size: 1rem;
+  font-weight: 200 !important;
   text-transform: capitalize;
   /* @include box-shadow; */
+}
+@media screen and (max-width: 600px) {
+  .main-btn {
+    height: 30px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 600px) {
+  .main-btn {
+    height: 55px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .main-btn {
+    font-size: 1rem;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
 }
 .main-btn:hover {
   background: #ab0114;
@@ -307,25 +338,41 @@ button {
 }
 
 /* because of main img absolute position */
-.copyright-wrapper p {
-  font-family: Roboto-regular;
-  color: #FE142F;
-}
-
 /* ================================== */
 /* SIGN-UP MODAL */
 /* ================================== */
 .signUp-modal-wrapper {
-  display: none;
+  /* display: none; */
   background-color: #fff;
   position: absolute;
-  top: 0;
+  /* leave header visible */
   z-index: 2;
   width: 100%;
   height: 100%;
 }
+@media screen and (max-width: 600px) {
+  .signUp-modal-wrapper {
+    top: 80px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 600px) {
+  .signUp-modal-wrapper {
+    top: 0;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
 .signUp-modal-wrapper__fields-wrapper {
   width: 50%;
+  max-width: 100%;
   height: 80%;
   padding-top: 6.66vw;
   margin: auto;
@@ -335,6 +382,19 @@ button {
   .signUp-modal-wrapper__fields-wrapper {
     width: 100%;
     height: 100%;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 600px) {
+  .signUp-modal-wrapper__fields-wrapper {
+    width: 550px;
+    max-width: 100%;
+    height: 850px;
+    margin: auto;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -434,7 +494,8 @@ h1, h2 {
 
 h1 {
   font-family: "DMSans-medium";
-  font-size: 12vw;
+  font-size: 11vw;
+  /* max size */
   /* max size */
 }
 @media screen and (max-width: 600px) {
@@ -450,6 +511,7 @@ h1 {
 @media screen and (min-width: 600px) and (max-width: 992px) {
   h1 {
     margin: 5px 0px;
+    padding: 2%;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -459,7 +521,18 @@ h1 {
 }
 @media screen and (min-width: 992px) {
   h1 {
-    font-size: 96px;
+    font-size: 86px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 1200px) {
+  h1 {
+    margin-top: 0;
+    padding-top: 80px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -485,7 +558,7 @@ h2 {
 }
 @media screen and (min-width: 992px) {
   h2 {
-    font-size: 24px;
+    font-size: 20px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -508,6 +581,12 @@ nav a {
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
   }
+}
+
+footer p {
+  font-family: "Roboto-regular";
+  color: #FE142F;
+  font-size: 0.7rem;
 }
 
 /* =============================================== */
@@ -603,21 +682,12 @@ header, section {
   }
 }
 
-@media screen and (min-width: 600px) {
-  footer {
-    margin-bottom: 60px;
-    margin-left: 40px;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
+footer {
+  /* @include min-600px { margin-bottom: 60px; margin-left: 40px;} */
 }
 @media screen and (max-width: 600px) {
   footer {
-    margin-left: 25px;
-    margin-right: 25px;
+    margin: 25px;
     text-align: center;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
@@ -638,9 +708,11 @@ header, section {
   max-width: 100%;
   /* useful ? */
 }
-@media screen and (min-width: 600px) and (max-width: 992px) {
+@media screen and (min-width: 600px) and (max-width: 1200px) {
   .presentation__page-title {
     background-color: #232323;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -658,12 +730,22 @@ header, section {
     -o-transition: all 1s ease-in-out;
   }
 }
-@media screen and (min-width: 600px) and (max-width: 992px) {
+@media screen and (min-width: 600px) and (max-width: 1200px) {
   .presentation__page-subtitle {
     width: 80%;
     text-align: center;
     margin: auto;
     padding: 60px 0;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .presentation__page-subtitle {
+    max-width: 35%;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -710,7 +792,7 @@ header, section {
     -o-transition: all 1s ease-in-out;
   }
 }
-@media screen and (min-width: 600px) and (max-width: 992px) {
+@media screen and (min-width: 600px) and (max-width: 1200px) {
   .presentation__bloc-img {
     top: 150px;
     transition: all 1s ease-in-out;
@@ -720,7 +802,7 @@ header, section {
     -o-transition: all 1s ease-in-out;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .presentation__bloc-img {
     top: 0;
     transition: all 1s ease-in-out;
@@ -730,7 +812,7 @@ header, section {
     -o-transition: all 1s ease-in-out;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .presentation__bloc-img picture {
     display: flex;
     flex-direction: row-reverse;
@@ -746,7 +828,7 @@ header, section {
   display: block;
   border-radius: 5px;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .presentation__bloc-img picture img {
     max-width: 60%;
     transition: all 1s ease-in-out;
@@ -773,6 +855,7 @@ header, section {
 @media screen and (min-width: 992px) {
   .signup__btn-wrapper {
     margin-left: 50px;
+    max-width: 200px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;

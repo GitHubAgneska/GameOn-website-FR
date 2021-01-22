@@ -2,11 +2,15 @@
 /* MAIN BUTTON ===== */
 /* =============================================== */
 .main-btn {
-        padding: 3% 12%;
+        @include max-600px { height: 30px; }
+        @include min-600px { height: 55px; }
+        @include min-1200px { font-size: 1rem; }
+        padding: 0% 12%;
         @include border-radius(8px);
         background: $red-main;
         color: $white;
         font-size: 1rem;
+        font-weight: 200 !important;
         text-transform: capitalize;
         /* @include box-shadow; */
         &:hover {
