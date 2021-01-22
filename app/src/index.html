@@ -62,35 +62,52 @@
         <div class="signUp-modal-wrapper__fields-wrapper">
 
           <form method="post" action="">
-            <label for="firstName">first name</label>
-            <input type="text" name="firstName" id="firstName" required>
+            <div class="field">
+              <label for="firstName">first name</label>
+              <input type="text" name="firstName" id="firstName" required>
+            </div>
 
-            <label for="lastName">last name</label>
-            <input type="text" name="lastName" id="lastName" required>
+            <div class="field">
+              <label for="lastName">last name</label>
+              <input type="text" name="lastName" id="lastName" required>
+            </div>
             
-            <label for="email">email</label>
-            <input type="text" name="email" id="email" required>
+            <div class="field">
+              <label for="email">email</label>
+              <input type="text" name="email" id="email" required>
+            </div>
             
-            <label for="birthdate">birthdate</label>
-            <input type="date" name="birthdate" id="birthdate" required>
+            <div class="field">
+              <label for="birthdate">birthdate</label>
+              <input type="date" name="birthdate" id="birthdate" required>
+            </div>
             
-            <label for="tournaments">How many tournaments have you attended?</label>
-            <input type="date" name="tournaments" id="tournaments" required>
+            <div class="field">
+              <label for="tournaments">how many tournaments have you attended?</label>
+              <input type="text" name="tournaments" id="tournaments" required>
+            </div>
 
-            <label for="location">which location?</label>
-            <input type="radio" name="location" id="new York" value="new York" required><label for="new york">new york</label>
-            <input type="radio" name="location" id="san francisco" value="san francisco" required><label for="san francisco">san francisco</label>
-            <input type="radio" name="location" id="seattle" value="seattle" required><label for="seattle">seattle</label>
-            <input type="radio" name="location" id="chicago" value="chicago" required><label for="chicago">chicago</label>
-            <input type="radio" name="location" id="boston" value="boston" required><label for="boston">boston</label>
-            <input type="radio" name="location" id="portland" value="portland" required><label for="portland">portland</label>
+            <div class="field location">
+              <label for="location">which location?</label>
+              <input type="radio" name="location" id="new York" value="new York" required><label for="new york">new york</label>
+              <input type="radio" name="location" id="san francisco" value="san francisco" required><label for="san francisco">san francisco</label>
+              <input type="radio" name="location" id="seattle" value="seattle" required><label for="seattle">seattle</label>
+              <input type="radio" name="location" id="chicago" value="chicago" required><label for="chicago">chicago</label>
+              <input type="radio" name="location" id="boston" value="boston" required><label for="boston">boston</label>
+              <input type="radio" name="location" id="portland" value="portland" required><label for="portland">portland</label>
+            </div>
 
-            <input type="checkbox" name="lorem1" id="lorem1" required><label for="lorem1">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
-            <input type="checkbox" name="lorem2" id="lorem2" required><label for="lorem2">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
+            <div class="field--check">
+              <input type="checkbox" name="lorem1" id="lorem1" required><label for="lorem1">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
+            </div>
+            <div class="field--check">
+              <input type="checkbox" name="lorem2" id="lorem2" required><label for="lorem2">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
+            </div>
+
           </form>
-        </div>
-        <div class="signUp-modal-wrapper__btn-wrapper">
-          <button class="main-btn">go</button>
+          <div class="btn-wrapper">
+            <button class="main-btn">go</button>
+          </div>
         </div>
       </div>
 

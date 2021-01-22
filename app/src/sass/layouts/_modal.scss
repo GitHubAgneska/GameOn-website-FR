@@ -2,7 +2,8 @@
 /* SIGN-UP MODAL */
 /* ================================== */
 
-.signUp-modal-wrapper { background-color: lightcoral;
+.signUp-modal-wrapper { 
+        background-color: $white;
         position: absolute;
         top:0;
         z-index:2;
@@ -12,15 +13,58 @@
         &__fields-wrapper {
             width:50%;
             height:80%;
+            padding-top: 6.66vw;
             margin: auto;
-            background-color: grey;
+            background-color: $dark;
             
-            form  {
-                @include flex-col-nowrap;
-                font-family: Roboto;
-                color: $white;
-                input { background-color: $white;}
+            form {
+            margin-left:25px; margin-right: 25px;
+            @include flex-col-nowrap;
+            align-items: stretch;
+            font-family: Roboto;
+            color: $white;
+
+            .field {
+                height:75px;
+                margin-bottom: 10px;
+                &--check { height:20px; }
+                
+                /* all text input fields + date = one liner elements */
+                *[type="text"], *[type="date"] { display: block; }
+
+                label { margin-bottom:10px;}
+                label[for="location"] { display: block; width: 100%; }
+                label { font-family: DMSans-regular; font-size:1rem; text-transform: capitalize;}
+
+                input { margin-top: 10px;}
+                /* all text & date input fields */
+                input[type="text"],
+                input[type="date"] { width: 100%; height: 45px; background-color: $white;  @include border-radius(5px);}
+               /*  input[type="radio"],  input[type="checkbox"] { } */
+                
+                input[type="radio"] {
+                    width: 30px; height: 30px;
+                    position: relative; /* to position inside knob */
+                    /* override default appearance */
+                    -moz-appearance: none;
+                    -webkit-appearance: none;
+                    border: 1px solid $white; border-radius: 50%;
+                    &:focus {box-shadow: 1px 1px 1px $white; }
+
+                    /* inside knob */
+                    &:after { 
+                        content:'';
+                        display: block;
+                        position: absolute;
+                        left: 0; top: 0;
+                        width: 25px; height: 25px;border-radius: 50%;
+                        /* opacity: 0; */
+                        background-color: green;
+                        &:active { opacity: 1;}
+                    }
+                }
+            }
             }
         }
-
+        .btn-wrapper button {@include mlmr-auto; }
 }
