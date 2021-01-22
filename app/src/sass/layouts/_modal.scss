@@ -2,7 +2,9 @@
 /* SIGN-UP MODAL */
 /* ================================== */
 
-.signUp-modal-wrapper { 
+.signUp-modal-wrapper {
+        display: none;
+
         background-color: $white;
         position: absolute;
         top:0;
@@ -11,6 +13,7 @@
         height:100%;
 
         &__fields-wrapper {
+            @include max-600px {  width:100%; height:100%;}
             width:50%;
             height:80%;
             padding-top: 6.66vw;
@@ -24,10 +27,10 @@
             font-family: Roboto;
             color: $white;
 
+            .check { height:20px; margin-top: 50px;margin-bottom: 50px;}
             .field {
                 height:75px;
                 margin-bottom: 10px;
-                &--check { height:20px; }
                 
                 /* all text input fields + date = one liner elements */
                 *[type="text"], *[type="date"] { display: block; }
@@ -56,7 +59,7 @@
                         content:'';
                         display: block;
                         position: absolute;
-                        left: 0; top: 0;
+                        @include centered;
                         width: 25px; height: 25px;border-radius: 50%;
                         /* opacity: 0; */
                         background-color: green;

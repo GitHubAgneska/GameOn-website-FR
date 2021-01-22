@@ -38,6 +38,7 @@ header, section  {
 header { 
     @include max-600px { padding-top: 30px; }
     @include min-600px { padding-top: 50px; }
+    @include min600px-max992px { margin-bottom: 50px; } 
     @include min-992px { margin-bottom: 80px;}
 }
 .homepage-content-wrapper {
@@ -54,34 +55,37 @@ footer {
 /* =============================================== */
 .presentation {
     position: relative;
-    @include min600px-max768px{ background-color: $dark;}
 
     &__page-title { 
        /* display: inline-block;  - gives a shrink-to-fit width, up to specified max-width value. */
         max-width: 100%; /* useful ? */
-        
+        @include min600px-max992px { background-color: $dark;}
+        @include min-1200px { max-width: 660px; }  
     }
+    &__page-subtitle {@include min600px-max992px { width: 80%; text-align: center; margin: auto; padding: 60px 0; } }
     &__page-title, &__page-subtitle {
         @include min-600px { color: $white; }
-        @include min-768px { margin-left: 50px; }
+        @include min-1200px { margin-left: 50px; }
     }
 
     &__bloc-img { 
-        @include min-768px {
-            /* block image goes to content bg */
+        @include min-600px {
+            /* block image goes to bg */
             width:100%;
             position: absolute; 
-            top: 0;
+            /* top: 100px; */
             z-index:-1;
             background-color: $dark; /* + dark block on img left */
         }
+        @include min600px-max992px { top: 150px;}
+        @include min-992px { top: 0; }
         /* force img to the right */
-        picture { @include min-768px {display: flex; flex-direction: row-reverse;}}
+        picture { @include min-992px {display: flex; flex-direction: row-reverse;}}
         picture img {
             max-width: 100%;
             display: block;
             border-radius: 5px;
-            @include min-768px { max-width:60%;}
+            @include min-992px { max-width:60%;}
         }
     }
 }
@@ -90,8 +94,9 @@ footer {
 /* SIGN-UP SECTION ===== */
 /* =============================================== */
 .signup {
+    @include min600px-max992px { margin-top: 160px; } 
     &__btn-wrapper {
-        @include min-768px { margin-left: 50px; } 
+        @include min-992px { margin-left: 50px; } 
     }
     &__btn-wrapper button {
         @include max-1200px {@include mlmr-auto;}}

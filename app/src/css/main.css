@@ -316,6 +316,7 @@ button {
 /* SIGN-UP MODAL */
 /* ================================== */
 .signUp-modal-wrapper {
+  display: none;
   background-color: #fff;
   position: absolute;
   top: 0;
@@ -330,6 +331,17 @@ button {
   margin: auto;
   background-color: #232323;
 }
+@media screen and (max-width: 600px) {
+  .signUp-modal-wrapper__fields-wrapper {
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
 .signUp-modal-wrapper__fields-wrapper form {
   margin-left: 25px;
   margin-right: 25px;
@@ -339,15 +351,17 @@ button {
   font-family: Roboto;
   color: #fff;
 }
+.signUp-modal-wrapper__fields-wrapper form .check {
+  height: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 .signUp-modal-wrapper__fields-wrapper form .field {
   height: 75px;
   margin-bottom: 10px;
   /* all text input fields + date = one liner elements */
   /* all text & date input fields */
   /*  input[type="radio"],  input[type="checkbox"] { } */
-}
-.signUp-modal-wrapper__fields-wrapper form .field--check {
-  height: 20px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field *[type=text], .signUp-modal-wrapper__fields-wrapper form .field *[type=date] {
   display: block;
@@ -393,8 +407,10 @@ button {
   content: "";
   display: block;
   position: absolute;
-  left: 0;
-  top: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -555,6 +571,16 @@ header, section {
     -o-transition: all 1s ease-in-out;
   }
 }
+@media screen and (min-width: 600px) and (max-width: 992px) {
+  header {
+    margin-bottom: 50px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
 @media screen and (min-width: 992px) {
   header {
     margin-bottom: 80px;
@@ -607,8 +633,13 @@ header, section {
 .presentation {
   position: relative;
 }
-@media screen and (min-width: 600px) and (max-width: 768px) {
-  .presentation {
+.presentation__page-title {
+  /* display: inline-block;  - gives a shrink-to-fit width, up to specified max-width value. */
+  max-width: 100%;
+  /* useful ? */
+}
+@media screen and (min-width: 600px) and (max-width: 992px) {
+  .presentation__page-title {
     background-color: #232323;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
@@ -617,10 +648,28 @@ header, section {
     -o-transition: all 1s ease-in-out;
   }
 }
-.presentation__page-title {
-  /* display: inline-block;  - gives a shrink-to-fit width, up to specified max-width value. */
-  max-width: 100%;
-  /* useful ? */
+@media screen and (min-width: 1200px) {
+  .presentation__page-title {
+    max-width: 660px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 992px) {
+  .presentation__page-subtitle {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    padding: 60px 0;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
 }
 @media screen and (min-width: 600px) {
   .presentation__page-title, .presentation__page-subtitle {
@@ -632,7 +681,7 @@ header, section {
     -o-transition: all 1s ease-in-out;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
   .presentation__page-title, .presentation__page-subtitle {
     margin-left: 50px;
     transition: all 1s ease-in-out;
@@ -645,12 +694,12 @@ header, section {
 .presentation__bloc-img {
   /* force img to the right */
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
   .presentation__bloc-img {
-    /* block image goes to content bg */
+    /* block image goes to bg */
     width: 100%;
     position: absolute;
-    top: 0;
+    /* top: 100px; */
     z-index: -1;
     background-color: #232323;
     /* + dark block on img left */
@@ -661,7 +710,27 @@ header, section {
     -o-transition: all 1s ease-in-out;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) and (max-width: 992px) {
+  .presentation__bloc-img {
+    top: 150px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 992px) {
+  .presentation__bloc-img {
+    top: 0;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 992px) {
   .presentation__bloc-img picture {
     display: flex;
     flex-direction: row-reverse;
@@ -677,7 +746,7 @@ header, section {
   display: block;
   border-radius: 5px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .presentation__bloc-img picture img {
     max-width: 60%;
     transition: all 1s ease-in-out;
@@ -691,7 +760,17 @@ header, section {
 /* =============================================== */
 /* SIGN-UP SECTION ===== */
 /* =============================================== */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) and (max-width: 992px) {
+  .signup {
+    margin-top: 160px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 992px) {
   .signup__btn-wrapper {
     margin-left: 50px;
     transition: all 1s ease-in-out;
