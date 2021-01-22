@@ -27,7 +27,7 @@ body {
 }
 
 a { text-decoration: none; color: unset; cursor: pointer; }
-input { border: transparent; background-color: inherit; }
+input { border: transparent; cursor:pointer;}
 ul { margin: 0; padding: 0;}
 ul li { list-style: none; }
 button {  display: block; border: none;  cursor: pointer; }
