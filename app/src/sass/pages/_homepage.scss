@@ -6,21 +6,26 @@
 h1, h2 { font-weight: normal;}
 h1 {
     font-family:'DMSans-medium';
-    font-size: 12vw;
+    font-size: 11vw;
     @include max-600px { margin: 10px 0px; }
-    @include min600px-max992px { margin: 5px 0px; }
-    @include min-992px {font-size: 96px; } /* max size */
+    @include min600px-max992px { margin: 5px 0px; padding:2%; }
+    @include min-992px {font-size: 86px; } /* max size */
+    @include min-1200px {margin-top:0; padding-top:80px; } /* max size */
 }
 h2 {
     font-family:'DMSans-regular';
     font-size: 3vw;
     @include max-600px { margin: 20px 0px; } 
-    @include min-992px {font-size: 24px; } /* max size */
+    @include min-992px {font-size: 20px; } /* max size */
 }
 nav a { 
     font-family:'DMSans-regular';
     font-size: 2vw;
     @include min-992px {font-size: 18px; } /* max size */
+}
+footer p {font-family: 'Roboto-regular';
+        color: $red-main;
+        font-size: 0.7rem;
 }
 
 /* =============================================== */
@@ -45,8 +50,8 @@ header {
     @include min-600px { margin-bottom: 100px;}
 }
 footer { 
-    @include min-600px { margin-bottom: 60px; margin-left: 40px;}
-    @include max-600px { margin-left: 25px; margin-right: 25px; text-align: center;}
+    @include max-600px { margin: 25px; text-align: center;}
+    /* @include min-600px { margin-bottom: 60px; margin-left: 40px;} */
 }
 
 
@@ -59,10 +64,13 @@ footer {
     &__page-title { 
        /* display: inline-block;  - gives a shrink-to-fit width, up to specified max-width value. */
         max-width: 100%; /* useful ? */
-        @include min600px-max992px { background-color: $dark;}
+        @include min600px-max1200px { background-color: $dark; border-top-left-radius: 5px;border-top-right-radius: 5px;}
         @include min-1200px { max-width: 660px; }  
     }
-    &__page-subtitle {@include min600px-max992px { width: 80%; text-align: center; margin: auto; padding: 60px 0; } }
+    &__page-subtitle {
+        @include min600px-max1200px { width: 80%; text-align: center; margin: auto; padding: 60px 0; }
+        @include min-1200px { max-width: 35%; }
+    }
     &__page-title, &__page-subtitle {
         @include min-600px { color: $white; }
         @include min-1200px { margin-left: 50px; }
@@ -77,15 +85,15 @@ footer {
             z-index:-1;
             background-color: $dark; /* + dark block on img left */
         }
-        @include min600px-max992px { top: 150px;}
-        @include min-992px { top: 0; }
+        @include min600px-max1200px { top: 150px;}
+        @include min-1200px { top: 0; }
         /* force img to the right */
-        picture { @include min-992px {display: flex; flex-direction: row-reverse;}}
+        picture { @include min-1200px {display: flex; flex-direction: row-reverse;}}
         picture img {
             max-width: 100%;
             display: block;
             border-radius: 5px;
-            @include min-992px { max-width:60%;}
+            @include min-1200px { max-width:60%;}
         }
     }
 }
@@ -96,7 +104,7 @@ footer {
 .signup {
     @include min600px-max992px { margin-top: 160px; } 
     &__btn-wrapper {
-        @include min-992px { margin-left: 50px; } 
+        @include min-992px { margin-left: 50px; max-width:200px; } 
     }
     &__btn-wrapper button {
         @include max-1200px {@include mlmr-auto;}}

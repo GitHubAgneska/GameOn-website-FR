@@ -5,8 +5,5 @@
 
 footer { @include min-768px { position: absolute; bottom: 0;} } /* because of main img absolute position */
 .copyright-wrapper {
-    p { 
-        font-family: Roboto-regular;
-        color: $red-main;
-    }
+    p {}
 }
