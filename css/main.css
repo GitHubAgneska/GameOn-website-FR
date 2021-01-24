@@ -480,10 +480,10 @@ button {
   border-radius: 50%;
   /* inside knob */
 }
-.signUp-modal-wrapper__fields-wrapper form .field input[type=radio]:focus {
-  box-shadow: 1px 1px 1px #fff;
+.signUp-modal-wrapper__fields-wrapper form .field input[type=radio]:checked {
+  border: 1px solid green;
 }
-.signUp-modal-wrapper__fields-wrapper form .field input[type=radio]:after {
+.signUp-modal-wrapper__fields-wrapper form .field input[type=radio]::after {
   content: "";
   display: block;
   position: absolute;
@@ -494,9 +494,11 @@ button {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  /* opacity: 0; */
+  opacity: 0;
+}
+.signUp-modal-wrapper__fields-wrapper form .field input[type=radio]:checked::after {
   background-color: green;
-  /*  &:active { opacity: 1;} */
+  opacity: 1;
 }
 .signUp-modal-wrapper .btn-wrapper button {
   margin-left: auto;

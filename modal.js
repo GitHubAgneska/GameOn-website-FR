@@ -66,6 +66,21 @@ cancelModalBtn.addEventListener('click', function(event){
 })
 
 
+/* retrieve checked value from locations radio input */
+/* function getRadioValue() {
+  var checkedValue; 
+  var radioInputs = document.getElementsByClassName('locations');
+  for (var i=0; i < radioInputs[i];i++) {
+    if (radioInputs[i].checked) {
+      checkedValue = radioInputs[i].value;
+      break;
+    }
+  }
+  console.log('checkedvalue==', checkedValue);
+  return checkedValue;
+}  */
+
+
 
 /* trigger form sending with 'go' btn  */
 sendFormDataBtn.addEventListener('click', function(event){ 
@@ -84,6 +99,11 @@ sendFormDataBtn.addEventListener('click', function(event){
     /* push new field object to user array  */
     newUser.push(newInputObject);
   }
+  var location = document.querySelector('input[name="location"]:checked').value;
+  console.log('LOCATION==',location);
+
+  // var lorem1 = document.querySelector('input[name="lorem1"]:checked')
+  
   console.log('newUser==', newUser);
 });
 
