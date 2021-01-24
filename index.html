@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/main.css" />
     <!-- Font awesome cdn -->
     <script src="https://kit.fontawesome.com/711ecd1ff8.js" crossorigin="anonymous"></script>
+    <script src="modal.js"></script>
   </head>
   <body>
 
@@ -53,7 +54,7 @@
 
       <section class="signup">
         <div class="signup__btn-wrapper">
-          <button class="main-btn">sign up now</button>
+          <button id="signupBtn" class="main-btn">sign up now</button>
         </div>
       </section>
 
@@ -62,7 +63,11 @@
       <!-- ------------- -->
       <div id="signUp-modal" class="signUp-modal-wrapper">
         <div class="signUp-modal-wrapper__fields-wrapper">
-
+          <div class="cancelModalBtn-wrapper">
+            <div class="cancelModalBtn">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
           <form method="post" action="">
             <div class="field">
               <label for="firstName">first name</label>
