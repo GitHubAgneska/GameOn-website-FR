@@ -1,4 +1,4 @@
-function editNav() {
+/* function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
@@ -19,5 +19,14 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";
 }
+ */
 
+
+
+/* burger nav toggle */
+
+/* sign-up modal toggle */
+
+/* Definition of concerned dom elements */
+const openModalSignUpbtn = document.getElementById("signupBtn");
 

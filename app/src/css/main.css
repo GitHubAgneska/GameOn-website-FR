@@ -377,6 +377,25 @@ button {
   padding-top: 6.66vw;
   margin: auto;
   background-color: #232323;
+  border-radius: 5px;
+}
+.signUp-modal-wrapper__fields-wrapper .cancelModalBtn-wrapper {
+  position: relative;
+  /* for cancel btn absolute positioning */
+  width: 100%;
+}
+.signUp-modal-wrapper__fields-wrapper .cancelModalBtn-wrapper .cancelModalBtn {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 15px;
+}
+.signUp-modal-wrapper__fields-wrapper .cancelModalBtn-wrapper .cancelModalBtn i {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 @media screen and (max-width: 600px) {
   .signUp-modal-wrapper__fields-wrapper {

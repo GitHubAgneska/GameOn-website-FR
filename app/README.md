@@ -49,3 +49,45 @@ https://nodejs.org/fr/docs/guides/nodejs-docker-webapp/
 
 <small>('dp':  “detached” mode (in the background) + mapping between the host’s port 3000 to the container’s port 3000.)</small>
 
+
+---
+### SASS install /use
+---
+- `brew sass`  or  `npm i sass`
+- create sass input folder +  css output folder
+- have html point towards css output files
+
+- add script to package.json to automatically update/recompile scss changes and output to css :  
+        
+        "scripts": {
+            "scss": "sass --watch scss:css"
+            }
+
+- run command `sass ` or  `npm run sass`
+
+- !! browser inspector => deactivate 'show original sources' so it uses .css stylesheet and not .scss (which sass syntax will not do here in the browser)
+
+---
+---
+
+SASS SCSS AUTOPREFIXER
+-----
+- install: 
+
+        npm install autoprefixer postcss postcss-cli -g
+
+- add script:
+
+        "prefix": "postcss ./css/ohmyfood-main.css --use autoprefixer -d ./css/prefixed/"
+
+- and       
+        
+        "browserslist": "last 4 versions"
+
+- run:
+
+        npm run prefix
+
+
+----
+
