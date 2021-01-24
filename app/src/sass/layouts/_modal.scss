@@ -2,8 +2,9 @@
 /* SIGN-UP MODAL */
 /* ================================== */
 
+
 .signUp-modal-wrapper {
-        /* display: none; */
+        display: none;
         background-color: $white;
         position: absolute;
         @include max-600px { top: 80px; } /* leave header visible */
@@ -75,7 +76,7 @@
                         width: 25px; height: 25px;border-radius: 50%;
                         /* opacity: 0; */
                         background-color: green;
-                        &:active { opacity: 1;}
+                       /*  &:active { opacity: 1;} */
                     }
                 }
             }

@@ -25,8 +25,37 @@ function launchModal() {
 
 /* burger nav toggle */
 
-/* sign-up modal toggle */
 
-/* Definition of concerned dom elements */
-const openModalSignUpbtn = document.getElementById("signupBtn");
+/* ------------------------------------- */
+/* sign-up modal */
+/* ------------------------------------- */
+
+/* Definition of concerned dom elements --- */
+
+var signUpmodal=document.getElementById("signUp-modal");
+
+/* signup btn to open modal */
+const openModalSignUpbtn=document.getElementById("signupBtn");
+/* cancel btn to close modal */
+var cancelModalBtn=document.getElementById("cancelModalBtn");
+/* go btn to send form data */
+var sendFormDataBtn=document.getElementById("goBtn");
+
+
+
+/* Affiliated functions------------ */
+
+/* open modal on signup btn click */
+openModalSignUpbtn.onclick = function() {
+  signUpmodal.style.display = "block";
+}
+
+/* close modal on cancel btn click */
+cancelModalBtn.onclick = function() {
+
+  /*  + check if fields = pristine, if not, ask for confirmation */
+  signUpmodal.style.display = "none";
+}
+
+
 
