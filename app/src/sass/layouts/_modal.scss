@@ -2,16 +2,16 @@
 /* SIGN-UP MODAL */
 /* ================================== */
 
-
 .signUp-modal-wrapper {
         display: none;
-        background-color: $white;
-        position: absolute;
-        @include max-600px { top: 80px; } /* leave header visible */
-        @include min-600px { top:0; }
-        z-index:2;
+        position: fixed;
         width:100%;
         height:100%;
+        z-index:2;
+        @include max-600px { top: 80px; } /* leave header visible */
+        @include min-600px { top:0; }
+        background-color: $white;
+
         &__fields-wrapper {
 
             .cancelModalBtn-wrapper {
@@ -83,4 +83,15 @@
             }
         }
         .btn-wrapper button {@include mlmr-auto; }
+}
+
+/* fade-in out modal anim */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }

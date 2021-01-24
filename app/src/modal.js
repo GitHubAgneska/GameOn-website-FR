@@ -22,8 +22,9 @@ function launchModal() {
  */
 
 
-
+/* ------------------------------------- */
 /* burger nav toggle */
+/* ------------------------------------- */
 
 
 /* ------------------------------------- */
@@ -32,30 +33,63 @@ function launchModal() {
 
 /* Definition of concerned dom elements --- */
 
-var signUpmodal=document.getElementById("signUp-modal");
+var signUpmodal= document.getElementById("signUp-modal");
 
 /* signup btn to open modal */
-const openModalSignUpbtn=document.getElementById("signupBtn");
+const openModalSignUpbtn= document.getElementById("signupBtn");
 /* cancel btn to close modal */
-var cancelModalBtn=document.getElementById("cancelModalBtn");
+var cancelModalBtn= document.getElementById("cancelModalBtn");
 /* go btn to send form data */
-var sendFormDataBtn=document.getElementById("goBtn");
+var sendFormDataBtn= document.getElementById("goBtn");
 
 
 
 /* Affiliated functions------------ */
 
 /* open modal on signup btn click */
+/* modal's attribute "display" changes from "none" to "block"  */
+/* and the "animation" attribute is used to change opacity as a transition */
 openModalSignUpbtn.onclick = function() {
-  signUpmodal.style.display = "block";
+  signUpmodal.setAttribute("style", "display:block; animation: fade-in 0.6s;");
 }
 
 /* close modal on cancel btn click */
-cancelModalBtn.onclick = function() {
-
+// cancelModalBtn.onclick = function() {
   /*  + check if fields = pristine, if not, ask for confirmation */
-  signUpmodal.style.display = "none";
-}
+  /* signUpmodal.setAttribute("style", "display:none ;animation: fade-out 6s;"); */
+// }
+
+cancelModalBtn.addEventListener('click', function(event){
+    event.stopPropagation(); /* for cancel btn 's parent also contains click  */
+    signUpmodal.setAttribute("style", "animation: fade-out 0.6s;")
+
+})
+
+
+
+/* trigger form sending with 'go' btn  */
+sendFormDataBtn.addEventListener('click', function(event){ 
+
+    /* retrieve input values from form */
+  var inputs = document.getElementById('signUp-form').elements;
+  var newUser = new Array();
+
+  /* make object out of each of input value */
+  for (var i=0 ; i < inputs.length; i++ ) {
+    console.log('input[i].value==',inputs[i].value );
+    var newInputObject = new Object();
+    newInputObject.fieldName = inputs[i].name;
+    newInputObject.value = inputs[i].value;
+    
+    /* push new field object to user array  */
+    newUser.push(newInputObject);
+  }
+  console.log('newUser==', newUser);
+});
+
+
+
+
 
 
 
