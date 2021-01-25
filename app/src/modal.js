@@ -44,7 +44,7 @@ var sendFormDataBtn= document.getElementById("goBtn");
 
 
 
-/* Affiliated functions------------ */
+/* Affiliated functions ------------ */
 
 /* open modal on signup btn click */
 /* modal's attribute "display" changes from "none" to "block"  */
@@ -66,6 +66,22 @@ cancelModalBtn.addEventListener('click', function(event){
 })
 
 
+/* PROCESS FORM DATA ------------  */
+
+/* Definition of concerned dom elements --- */
+/* const inputs = document.getElementById('signUp-form').elements;
+const textInputs = inputs('input[type="text"]');
+console.log('textinputs===',textInputs ); */
+
+/* form inputs validation : happens 'onchange' when field input loses focus / is checked */
+
+
+function validateFormInputs() {
+
+}
+
+
+
 /* retrieve checked value from locations radio input */
 /* function getRadioValue() {
   var checkedValue; 
@@ -85,26 +101,42 @@ cancelModalBtn.addEventListener('click', function(event){
 /* trigger form sending with 'go' btn  */
 sendFormDataBtn.addEventListener('click', function(event){ 
 
+  event.preventDefault();
+  event.stopPropagation();
+
     /* retrieve input values from form */
   var inputs = document.getElementById('signUp-form').elements;
   var newUser = new Array();
 
   /* make object out of each of input value */
-  for (var i=0 ; i < inputs.length; i++ ) {
+  for ( var i = 0 ; i < inputs.length; i++ ) {
     console.log('input[i].value==',inputs[i].value );
     var newInputObject = new Object();
-    newInputObject.fieldName = inputs[i].name;
-    newInputObject.value = inputs[i].value;
-    
-    /* push new field object to user array  */
-    newUser.push(newInputObject);
-  }
-  var location = document.querySelector('input[name="location"]:checked').value;
-  console.log('LOCATION==',location);
 
-  // var lorem1 = document.querySelector('input[name="lorem1"]:checked')
-  
+    /* each field name becomes object key */
+    newInputObject.fieldName = inputs[i].name;
+
+    /* each text input value becomes object value */
+    if ( inputs[i].type == 'text' || inputs[i].type == 'date') { 
+      newInputObject.value = inputs[i].value;
+
+    /* radio input value for location is the only one that is checked */
+    } else if ( inputs[i].type == 'radio' && inputs[i].checked ) {
+      var locationChecked = document.querySelector('input[name="location"]:checked');
+      newInputObject.value = locationChecked.value;
+
+    /* checkbox input value is true or false */
+    } else if (inputs[i].type == 'checkbox' ) {
+      newInputObject.value = document.querySelector('input[type="checkbox"]:checked').value;
+    }
+    /* push each new field object to user array  */
+    /* if value is not empty  ( because of multiple radio input fields ... )*/
+    if (newInputObject.value) {
+      newUser.push(newInputObject);
+    }
+  }
   console.log('newUser==', newUser);
+  return newUser;
 });
 
 
