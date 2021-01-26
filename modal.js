@@ -1,3 +1,6 @@
+
+
+
 /* function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -69,32 +72,72 @@ cancelModalBtn.addEventListener('click', function(event){
 /* PROCESS FORM DATA ------------  */
 
 /* Definition of concerned dom elements --- */
-/* const inputs = document.getElementById('signUp-form').elements;
-const textInputs = inputs('input[type="text"]');
-console.log('textinputs===',textInputs ); */
 
-/* form inputs validation : happens 'onchange' when field input loses focus / is checked */
 
+/* FORM INPUTS VALIDATION  --- */ 
+/* happens when user hits submit ('go' btn )*/
 
 function validateFormInputs() {
+
+  /* name + lastname must be at leat 2 characters  */
+  const firstName = document.getElementById('firstName');
+  /* describe tests conditions  */
+  const firstNameTest = firstName.value.length >= 2;
+  /* if test fails, display field error message, selecting first immediate '.requirements' element following  */
+  if ( firstNameTest ) { 
+    console.log('OK!');
+  } else { 
+    var requirement = document.getElementsByClassName('requirements')[0];
+    requirement.style.visibility = 'visible';
+    console.log('firstNameTest failed!');
+  }
+
+  
+  const lastName = document.getElementById('lastName');
+
+  /* email address must be valid */
+  const email = document.getElementById('email');
+  const emailCorrectFormat = "[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*";
+
+  /* tournaments must be a number */
+  const tournaments = document.getElementById('tournaments');
+
+  /* one radio btn must be selected */
+  const locations = document.getElementsByClassName('locations');
+  const locations2 = document.querySelectorAll('input[type="radio"]');
+  var locationChecked = document.querySelector('input[name="location"]:checked');
+
+  /* user agrement checkbox must be checked  + second one unchecked */
+  const checkbox1 = document.getElementById('lorem1');
+  const checkbox1B = document.querySelector('input[type="checkbox"]:checked');
+  const checkbox2 = document.getElementById('lorem2');
+
+
+
+  const lastNameTest = lastName.value.length >= 2;
+  const emailTest = emailCorrectFormat.test(email.value);
+  const tournamentsTest = typeof(tournaments.value) === Number;
+  const locationTest = locations2.includes(locationChecked);
+  const userAgreementTest = checkbox1B.value === 'on';
+
+
 
 }
 
 
-
 /* retrieve checked value from locations radio input */
 /* function getRadioValue() {
-  var checkedValue; 
-  var radioInputs = document.getElementsByClassName('locations');
-  for (var i=0; i < radioInputs[i];i++) {
-    if (radioInputs[i].checked) {
-      checkedValue = radioInputs[i].value;
-      break;
+    var checkedValue; 
+    var radioInputs = document.getElementsByClassName('locations');
+    for (var i=0; i < radioInputs[i];i++) {
+      if (radioInputs[i].checked) {
+        checkedValue = radioInputs[i].value;
+        break;
+      }
     }
-  }
-  console.log('checkedvalue==', checkedValue);
-  return checkedValue;
-}  */
+    console.log('checkedvalue==', checkedValue);
+    return checkedValue;
+  }  */
 
 
 
@@ -103,6 +146,8 @@ sendFormDataBtn.addEventListener('click', function(event){
 
   event.preventDefault();
   event.stopPropagation();
+
+  validateFormInputs();
 
     /* retrieve input values from form */
   var inputs = document.getElementById('signUp-form').elements;

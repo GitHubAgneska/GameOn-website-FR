@@ -23,13 +23,10 @@
                     i { @include icon-base; color: $white; }
                 }
             }
-            @include max-600px {  width:100%; height:100%;}
-            @include min-600px {  width:550px; max-width: 100%; height:850px; margin:auto; }
-            width:50%;
-            max-width: 100%;
-            height:80%;
-            padding-top: 6.66vw;
-            margin: auto;
+            @include max-600px { width:100%; height:100%;}
+            @include min-600px { width:550px; max-width: 100%; height:850px; margin:auto; }
+            width:50%; max-width: 100%; height:80%;
+            padding-top: 6.66vw; margin: auto;
             background-color: $dark;
             @include border-radius(5px);
             
@@ -38,47 +35,58 @@
             @include flex-col-nowrap;
             align-items: stretch;
             font-family: Roboto;
-            color: $white;
-
-            .check { height:20px; margin-top: 50px;margin-bottom: 50px;}
+            
+            /* checkbox fields */
+            .check { height:20px; margin-top: 50px; margin-bottom: 50px; }
+            /* all other fields */
             .field {
-                height:75px;
-                margin-bottom: 10px;
+                height:75px; margin-bottom: 10px;
                 
                 /* all text input fields + date = one liner elements */
                 *[type="text"], *[type="date"] { display: block; }
 
-                label { margin-bottom:10px;}
+                label { margin-bottom:10px; color: $white;}
                 label[for="location"] { display: block; width: 100%; }
                 label { font-family: DMSans-regular; font-size:1rem; text-transform: capitalize;}
 
-                input { margin-top: 10px;}
-                /* all text & date input fields */
+                input { 
+                    margin-top: 10px;
+                    &:focus {outline: 0; border-color: green; }
+                    &:valid:focus { border: 2px solid green; }
+                    &:required:invalid, &:focus:invalid { border: 2px solid $red-main; }
+                }
                 input[type="text"],
-                input[type="date"] { width: 100%; height: 45px; background-color: $white;  @include border-radius(5px);}
-               /*  input[type="radio"],  input[type="checkbox"] { } */
+                input[type="email"],
+                input[type="date"] { width: 100%; height: 45px; background-color: $white; @include border-radius(5px);}
                 
                 input[type="radio"] {
-                    width: 30px; height: 30px;
-                    position: relative; /* to position inside knob */
                     /* override default appearance */
                     -moz-appearance: none;
                     -webkit-appearance: none;
+                    width: 30px; height: 30px;
+                    position: relative; /* to position inside knob */
                     border: 1px solid $white; border-radius: 50%;
-                    &:checked {border: 1px solid green; }
-                    /* inside knob */
-                    &::after { 
+
+                    &:checked { border: 1px solid green; }
+                    &::after { /* inside knob */
                         content:'';
                         display: block;
                         position: absolute;
-                        @include centered;
                         width: 25px; height: 25px;border-radius: 50%;
                         opacity: 0;
                     }
                 }
-                input[type="radio"]:checked::after {background-color: green; opacity: 1;}
+                input[type="radio"]:checked::after { background-color: green; opacity: 1; }
+                .requirements {
+                    visibility: hidden;
+                    padding: 1% 0%;
+                    font-size: 0.6rem;
+                    color: $red-main;
+                    font-style: italic;
+                    transition: 0.28s;
+                }
             }
-            }
+        }
         }
         .btn-wrapper button {@include mlmr-auto; }
 }
