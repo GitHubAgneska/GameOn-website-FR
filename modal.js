@@ -74,54 +74,91 @@ cancelModalBtn.addEventListener('click', function(event){
 /* Definition of concerned dom elements --- */
 
 
+
 /* FORM INPUTS VALIDATION  --- */ 
 /* happens when user hits submit ('go' btn )*/
-
 function validateFormInputs() {
 
   /* name + lastname must be at leat 2 characters  */
   const firstName = document.getElementById('firstName');
-  /* describe tests conditions  */
+  /* describe tests condition  */
   const firstNameTest = firstName.value.length >= 2;
-  /* if test fails, display field error message, selecting first immediate '.requirements' element following  */
-  if ( firstNameTest ) { 
-    console.log('OK!');
-  } else { 
-    var requirement = document.getElementsByClassName('requirements')[0];
-    requirement.style.visibility = 'visible';
-    console.log('firstNameTest failed!');
-  }
+  /* if test fails, display field error message, making first '.requirements' class element visible */
+  if ( firstNameTest ) { console.log('firstNameTest OK!');
+    } else { 
+      var requirement = document.getElementsByClassName('requirements')[0];
+      requirement.style.visibility = 'visible';
+      firstName.style.border = '2px solid red';
+      console.log('firstNameTest failed!');
+    }
 
-  
   const lastName = document.getElementById('lastName');
+  const lastNameTest = lastName.value.length >= 2;
+  if ( lastNameTest ) { console.log('lastNameTest OK!'); 
+  } else { 
+      var requirement = document.getElementsByClassName('requirements')[1];
+      requirement.style.visibility = 'visible';
+      lastName.style.border = '2px solid red';
+      console.log('lastNameTest failed!');
+    }
 
   /* email address must be valid */
   const email = document.getElementById('email');
   const emailCorrectFormat = "[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*";
+  const emailTest = (email.value).match(emailCorrectFormat);
+  if ( emailTest ) { console.log('emailTest OK!'); 
+  } else { 
+      var requirement = document.getElementsByClassName('requirements')[2];
+      requirement.style.visibility = 'visible';
+      email.style.border = '2px solid red';
+      console.log('emailTest failed!');
+    }
+
+  /* birthdate must be valid */
+  const birthdate = document.getElementById('birthdate');
+  const birthdateCorrectFormat = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/;
+  const birtdateTest = birthdate.value.match(birthdateCorrectFormat);
+  if ( birtdateTest ) { console.log('birthdateTest OK!'); 
+  } else { 
+      var requirement = document.getElementsByClassName('requirements')[3];
+      requirement.style.visibility = 'visible';
+      birthdate.style.border = '2px solid red';
+      console.log('birthdateTest failed!');
+    }
 
   /* tournaments must be a number */
   const tournaments = document.getElementById('tournaments');
+  const tournamentsTest = typeof(tournaments.value) === Number;
+  if ( tournamentsTest ) { console.log('tournamentsTest OK!'); 
+  } else { 
+      var requirement = document.getElementsByClassName('requirements')[4];
+      requirement.style.visibility = 'visible';
+      tournaments.style.border = '2px solid red';
+      console.log('tournamentsTest failed!');
+    }
 
   /* one radio btn must be selected */
-  const locations = document.getElementsByClassName('locations');
-  const locations2 = document.querySelectorAll('input[type="radio"]');
+  const locations = Array.from(document.querySelectorAll('input[type="radio"]'));
   var locationChecked = document.querySelector('input[name="location"]:checked');
+  const locationTest = locations.includes(locationChecked);
+  if ( locationTest ) { console.log('locationTest OK!'); 
+  } else { 
+      var requirement = document.getElementsByClassName('requirements')[5];
+      requirement.style.visibility = 'visible';
+      console.log('locationTest failed!');
+    }
 
   /* user agrement checkbox must be checked  + second one unchecked */
-  const checkbox1 = document.getElementById('lorem1');
-  const checkbox1B = document.querySelector('input[type="checkbox"]:checked');
-  const checkbox2 = document.getElementById('lorem2');
-
-
-
-  const lastNameTest = lastName.value.length >= 2;
-  const emailTest = emailCorrectFormat.test(email.value);
-  const tournamentsTest = typeof(tournaments.value) === Number;
-  const locationTest = locations2.includes(locationChecked);
-  const userAgreementTest = checkbox1B.value === 'on';
-
-
-
+  const checkbox = document.getElementById('lorem1');
+  // const checkbox1B = document.querySelector('input[type="checkbox"]:checked');
+  const userAgreementTest = checkbox.value !== null;
+  if ( userAgreementTest ) { console.log('userAgreementTest OK!'); 
+  } else { 
+      var requirement = document.getElementsByClassName('requirements')[6];
+      requirement.style.visibility = 'visible';
+      console.log('userAgreementTest failed!');
+    }
+  // const checkbox2 = document.getElementById('lorem2');
 }
 
 

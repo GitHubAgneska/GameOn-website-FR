@@ -95,12 +95,14 @@
             <div class="field">
               <label for="tournaments">how many tournaments have you attended?</label>
               <input type="text" name="tournaments" id="tournaments" required>
-              <div class="requirements">This entry must be a number</div>
+              <div class="requirements">Please enter a number</div>
             </div>
 
             <div class="field locations">
               <label for="location">which location?</label>
-              <input type="radio" name="location" id="new York" value="new York" required><label for="new york">new york</label>
+              <div class="choice">
+                <input type="radio" name="location" id="new York" value="new York" required><label for="new york">new york</label>
+              </div>
               <input type="radio" name="location" id="san francisco" value="san francisco" required><label for="san francisco">san francisco</label>
               <input type="radio" name="location" id="seattle" value="seattle" required><label for="seattle">seattle</label>
               <input type="radio" name="location" id="chicago" value="chicago" required><label for="chicago">chicago</label>
@@ -109,12 +111,14 @@
               <div class="requirements">Please select a location</div>
             </div>
 
-            <div class="check">
-              <div class="field--check">
-                <input type="checkbox" name="lorem1" id="lorem1" required><label for="lorem1">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
+            <div class="field check">
+              <div>
+                <input type="checkbox" name="lorem1" id="lorem1"  checked="checked" required>
+                <label for="lorem1">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
               </div>
-              <div class="field--check">
-                <input type="checkbox" name="lorem2" id="lorem2" required><label for="lorem2">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
+              <div>
+              <input type="checkbox" name="lorem2" id="lorem2" checked="unchecked" required>
+              <label for="lorem2">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
               </div>
               <div class="requirements">Please check the user agreement</div>
             </div>
