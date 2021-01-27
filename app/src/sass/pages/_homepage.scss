@@ -4,13 +4,14 @@
 /* =============================================== */
 
 h1, h2 { font-weight: normal;}
-h1 {
+h1 { 
+    margin: 0;
     font-family:'DMSans-medium';
     font-size: 11vw;
-    @include max-600px { margin: 10px 0px; }
-    @include min600px-max992px { margin: 5px 0px; padding:2%; }
     @include min-992px {font-size: 86px; } /* max size */
-    @include min-1200px {margin-top:0; padding-top:80px; } /* max size */
+    /* @include max-600px { margin: 10px 0px; }
+       @include min600px-max992px { margin: 5px 0px; padding:2%; } */
+   /*  @include min-1200px {margin-top:0; padding-top:80px; }  */
 }
 h2 {
     font-family:'DMSans-regular';
@@ -30,6 +31,7 @@ nav a {
 /* =============================================== */
 
 header, section  {
+
     /* for viewport 375: 25px = 0.66vw */
     /* @include max-600px { margin: 0vw 6.66vw 6.66vw 6.66vw; } */
     /* for viewport 600: 50px = 8.33vw */
@@ -40,16 +42,18 @@ header, section  {
 header { 
     background-color: lightpink;
     width:100%;
-/*     @include max-600px { padding-top: 30px; }
+/*  @include max-600px { padding-top: 30px; }
     @include min-600px { padding-top: 50px; }
     @include min600px-max992px { margin-bottom: 50px; } 
     @include min-992px { margin-bottom: 80px;} */
 }
 .homepage-content-wrapper {
-    height: 75vh;
-    background-color: lightblue;
     width: 85vw;
-    margin: 3vh auto;
+    height: 100vh;
+    /* height: 70vh; */
+    background-color: lightblue;
+    margin: 0 auto;
+    /* margin: 3vh auto; */
     /* @include min-600px { margin-bottom: 100px;} */
 }
 
@@ -62,12 +66,12 @@ header {
     position: relative;
 
     &__page-title { 
-       /* display: inline-block;  - gives a shrink-to-fit width, up to specified max-width value. */
-        max-width: 100%; /* useful ? */
+        border: 2px solid red;
         @include min600px-max1200px { background-color: $dark; border-top-left-radius: 5px;border-top-right-radius: 5px;}
         @include min-1200px { max-width: 660px; }  
     }
     &__page-subtitle {
+        border: 2px solid violet;
         @include min600px-max1200px { width: 80%; text-align: center; margin: auto; padding: 60px 0; }
         @include min-1200px { max-width: 35%; }
     }
@@ -77,6 +81,7 @@ header {
     }
 
     &__bloc-img { 
+        border: 2px solid blue;
         @include min-600px {
             /* block image goes to bg */
             width:100%;
@@ -96,16 +101,8 @@ header {
             @include min-1200px { max-width:60%;}
         }
     }
+    .signup__btn-wrapper {
+        border: 2px solid orange;
+    }
 }
 
-/* =============================================== */
-/* SIGN-UP SECTION ===== */
-/* =============================================== */
-.signup {
-    @include min600px-max992px { margin-top: 160px; } 
-    &__btn-wrapper {
-        @include min-992px { margin-left: 50px; max-width:200px; } 
-    }
-    &__btn-wrapper button {
-        @include max-1200px {@include mlmr-auto;}}
-}
