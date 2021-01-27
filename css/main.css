@@ -200,13 +200,16 @@ button {
 /* HEADER */
 /* ================================== */
 .header {
+  width: 85vw;
+  margin: auto;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
 }
 @media screen and (max-width: 600px) {
   .header {
-    height: 25px;
+    height: 12vh;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -216,7 +219,7 @@ button {
 }
 @media screen and (min-width: 600px) {
   .header {
-    height: 50px;
+    height: 15vh;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -325,10 +328,15 @@ button {
 /* =============================================== */
 /* FOOTER ===== */
 /* =============================================== */
-@media screen and (min-width: 768px) {
+footer {
+  background-color: blue;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+@media screen and (max-width: 600px) {
   footer {
-    position: absolute;
-    bottom: 0;
+    height: 8.25vh;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -336,8 +344,45 @@ button {
     -o-transition: all 1s ease-in-out;
   }
 }
+@media screen and (min-width: 600px) {
+  footer {
+    height: 14.65vh;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (max-width: 1200px) {
+  footer {
+    text-align: center;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 1200px) {
+  footer {
+    margin-left: 40px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+footer .copyright-wrapper {
+  background-color: orange;
+}
+footer .copyright-wrapper p {
+  font-family: "Roboto-regular";
+  color: #FE142F;
+  font-size: 1rem;
+}
 
-/* because of main img absolute position */
 /* ================================== */
 /* SIGN-UP MODAL */
 /* ================================== */
@@ -434,8 +479,11 @@ button {
   height: 100px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field.locations .choice {
-  display: inline;
-  min-width: 60px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 120px;
+  height: 50px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field.check {
   height: 90px;
@@ -449,17 +497,15 @@ button {
   display: block;
 }
 .signUp-modal-wrapper__fields-wrapper form .field label {
+  font-family: DMSans-regular;
+  font-size: 1rem;
+  text-transform: capitalize;
   margin-bottom: 10px;
   color: #fff;
 }
 .signUp-modal-wrapper__fields-wrapper form .field label[for=location] {
   display: block;
   width: 100%;
-}
-.signUp-modal-wrapper__fields-wrapper form .field label {
-  font-family: DMSans-regular;
-  font-size: 1rem;
-  text-transform: capitalize;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input {
   margin-top: 10px;
@@ -677,118 +723,33 @@ nav a {
   }
 }
 
-footer p {
-  font-family: "Roboto-regular";
-  color: #FE142F;
-  font-size: 0.7rem;
-}
-
 /* =============================================== */
 /* ===  HOMEPAGE -  MAIN SECTIONS RULES === */
 /* =============================================== */
 header, section {
   /* for viewport 375: 25px = 0.66vw */
+  /* @include max-600px { margin: 0vw 6.66vw 6.66vw 6.66vw; } */
   /* for viewport 600: 50px = 8.33vw */
+  /* @include min600px-max992px { margin-left: 8.33vw; margin-right: 8.33vw; } */
   /* for viewport 992: 100px = 13vw */
-}
-@media screen and (max-width: 600px) {
-  header, section {
-    margin: 0vw 6.66vw 6.66vw 6.66vw;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 992px) {
-  header, section {
-    margin-left: 8.33vw;
-    margin-right: 8.33vw;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
-}
-@media screen and (min-width: 992px) {
-  header, section {
-    margin-left: 13vw;
-    margin-right: 13vw;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
+  /* @include min-992px { margin-left: 13vw; margin-right: 13vw; } */
 }
 
-@media screen and (max-width: 600px) {
-  header {
-    padding-top: 30px;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
-}
-@media screen and (min-width: 600px) {
-  header {
-    padding-top: 50px;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 992px) {
-  header {
-    margin-bottom: 50px;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
-}
-@media screen and (min-width: 992px) {
-  header {
-    margin-bottom: 80px;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
+header {
+  background-color: lightpink;
+  width: 100%;
+  /*     @include max-600px { padding-top: 30px; }
+      @include min-600px { padding-top: 50px; }
+      @include min600px-max992px { margin-bottom: 50px; } 
+      @include min-992px { margin-bottom: 80px;} */
 }
 
-@media screen and (min-width: 600px) {
-  .homepage-content-wrapper {
-    margin-bottom: 100px;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
-}
-
-footer {
-  /* @include min-600px { margin-bottom: 60px; margin-left: 40px;} */
-}
-@media screen and (max-width: 600px) {
-  footer {
-    margin: 25px;
-    text-align: center;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-  }
+.homepage-content-wrapper {
+  height: 75vh;
+  background-color: lightblue;
+  width: 85vw;
+  margin: 3vh auto;
+  /* @include min-600px { margin-bottom: 100px;} */
 }
 
 /* =============================================== */

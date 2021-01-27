@@ -3,7 +3,20 @@
 /* FOOTER ===== */
 /* =============================================== */
 
-footer { @include min-768px { position: absolute; bottom: 0;} } /* because of main img absolute position */
-.copyright-wrapper {
-    p {}
+footer { 
+    background-color: blue;
+    position:fixed;
+    width:100%;
+    @include max-600px {height: 8.25vh;}
+    @include min-600px {height: 14.65vh;}
+    bottom: 0;
+    @include max-1200px { text-align: center ;}
+    @include min-1200px { margin-left: 40px;}
+    .copyright-wrapper {
+        background-color: orange;
+        p { font-family: 'Roboto-regular';
+            color: $red-main;
+            font-size: 1rem;
+        }
+    }
 }
