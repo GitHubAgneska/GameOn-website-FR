@@ -158,7 +158,7 @@ function validateFormInputs() {
       requirement.style.visibility = 'visible';
       console.log('userAgreementTest failed!');
     }
-  // const checkbox2 = document.getElementById('lorem2');
+
 }
 
 
