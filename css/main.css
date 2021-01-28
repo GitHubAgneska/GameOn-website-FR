@@ -116,6 +116,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 a {
@@ -394,8 +395,8 @@ footer .copyright-wrapper p {
   width: 100%;
   height: 100%;
   z-index: 2;
-  /* leave header visible */
   background-color: #fff;
+  /* leave header visible */
 }
 @media screen and (max-width: 600px) {
   .signUp-modal-wrapper {
@@ -421,15 +422,17 @@ footer .copyright-wrapper p {
   width: 50%;
   max-width: 100%;
   height: 80%;
-  padding-top: 6.66vw;
-  margin: auto;
+  margin: 3vh auto;
   background-color: #232323;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @media screen and (max-width: 600px) {
   .signUp-modal-wrapper__fields-wrapper {
     width: 100%;
-    height: 100%;
+    margin: 0 auto;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -442,7 +445,6 @@ footer .copyright-wrapper p {
     width: 550px;
     max-width: 100%;
     height: 850px;
-    margin: auto;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -472,26 +474,26 @@ footer .copyright-wrapper p {
 .signUp-modal-wrapper__fields-wrapper form {
   margin-left: 25px;
   margin-right: 25px;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: stretch;
+  /*          @include flex-col-nowrap;
+              align-items: stretch; */
   font-family: Roboto;
 }
 .signUp-modal-wrapper__fields-wrapper form .field.locations {
-  height: 100px;
+  background-color: blue !important;
+  display: flex;
+  flex-flow: row wrap;
 }
 .signUp-modal-wrapper__fields-wrapper form .field.locations .choice {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  width: 120px;
-  height: 50px;
+  width: 130px;
+  min-height: 50px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field.check {
   height: 90px;
 }
-.signUp-modal-wrapper__fields-wrapper form .field {
+.signUp-modal-wrapper__fields-wrapper form .field:not(.locations) {
   height: 75px;
+}
+.signUp-modal-wrapper__fields-wrapper form .field {
   margin: 10px 0;
   /* all text input fields + date = one liner elements */
 }
@@ -614,6 +616,7 @@ footer .copyright-wrapper p {
 @keyframes fade-in {
   from {
     opacity: 0;
+    transform: translateY(-150px);
   }
   to {
     opacity: 1;
