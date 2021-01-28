@@ -27,7 +27,7 @@
 
             .cancelModalBtn-wrapper {
                 position: relative; /* for cancel btn absolute positioning */
-                width:100%;height: 20px;
+                width:100%;
                 .cancelModalBtn { 
                     width: 15px; height:15px;
                     position: absolute; right:15px;
@@ -35,96 +35,94 @@
                 }
             } 
             form {
-            margin-left:25px; margin-right: 25px;
-/*          @include flex-col-nowrap;
-            align-items: stretch; */
-            font-family: Roboto;
+                margin-left:25px; margin-right: 25px;
+                font-family: Roboto;
+            
+                .field.locations {
+                    display: flex;
+                    flex-flow: row wrap; 
+                    .choice { /* width: 160px; */  margin-right: 10px; min-height: 50px; } }
+
+                .field.check { height:90px; }
+                .field:not(.locations) { height:75px;}
+                .field {
+                    margin: 5% 0;
+                    /* all text input fields + date = one liner elements */
+                    *[type="text"], *[type="date"] { display: block; }
+
+                    label { font-family: DMSans-regular; font-size:1rem; text-transform: capitalize; margin-bottom:10px; color: $white;}
+                    label[for="location"] { display: block; width: 100%; }
+
+                    input { 
+                        padding: 0 2%;
+                        &:focus {outline: 0; border-color: green; }
+                        &:valid:focus { border: 2px solid green; }
+                        .invalid { border: 2px solid $red-main; } /* class added with js validation */
+                        &[type="text"],
+                        &[type="email"],
+                        &[type="date"] { width: 100%; height: 45px; background-color: $white; @include border-radius(5px);margin-top: 10px;}
+                        &[type="radio"], &[type='checkbox'] {
+                            /* override default appearance */
+                            -moz-appearance: none;
+                            -webkit-appearance: none;
+                            width: 30px; height: 30px;
+                            outline: none;
+                            display: inline-block;
+                            vertical-align: middle;
+                            margin-right: 10px;
+                            transition: background .3s, border-color .3s;
+                        }
+                        &[type="radio"] {
+                            position: relative; /* to position inside knob */
+                            border: 1px solid $white; border-radius: 50%;
+                           /*  margin-right:1%; */
         
-            .field.locations { background-color:blue !important;
-                display: flex;
-                flex-flow: row wrap; 
-                .choice { width: 130px; min-height: 50px; } }
-
-            .field.check { height:90px; }
-            .field:not(.locations) { height:75px;}
-            .field {
-                margin: 10px 0;
-                /* all text input fields + date = one liner elements */
-                *[type="text"], *[type="date"] { display: block; }
-
-                label { font-family: DMSans-regular; font-size:1rem; text-transform: capitalize; margin-bottom:10px; color: $white;}
-                label[for="location"] { display: block; width: 100%; }
-
-                input { 
-                    margin-top: 10px;
-                    padding: 0 2%;
-                    &:focus {outline: 0; border-color: green; }
-                    &:valid:focus { border: 2px solid green; }
-                    .invalid { border: 2px solid $red-main; } /* class added with js validation */
-                    &[type="text"],
-                    &[type="email"],
-                    &[type="date"] { width: 100%; height: 45px; background-color: $white; @include border-radius(5px);}
-                    &[type="radio"], &[type='checkbox'] {
-                        /* override default appearance */
-                        -moz-appearance: none;
-                        -webkit-appearance: none;
-                        width: 30px; height: 30px;
-                        outline: none;
-                        display: inline-block;
-                        vertical-align: middle;
-                        transition: background .3s, border-color .3s;
-                    }
-                    &[type="radio"] {
-                        position: relative; /* to position inside knob */
-                        border: 1px solid $white; border-radius: 50%;
-                        margin-right:1%;
-    
-                        &:checked { border: 1px solid green; }
-                        &::after { /* inside knob */
-                            content:'';
-                            display: block;
-                            position: absolute;
-                            top: 4px; left: 4px;
-                            width: 20px; height: 20px;
-                            border-radius: 50%;
-                            opacity: 0; @include centered;
+                            &:checked { border: 1px solid green; }
+                            &::after { /* inside knob */
+                                content:'';
+                                display: block;
+                                position: absolute;
+                                top: 4px; left: 4px;
+                                width: 20px; height: 20px;
+                                border-radius: 50%;
+                                opacity: 0; @include centered;
+                            }
+                            &:checked::after { background: green; opacity: 1; }
                         }
-                        &:checked::after { background: green; opacity: 1; }
-                    }
-                    &[type="checkbox"] {
-                        position: relative; 
-                        background-color: lightgrey;
-                        @include border-radius(5px);
-                        &:checked { background: green; }
-                        &::after {  /* check sign inside */
-                            content: '';
-                            display: block;
-                            position: absolute;                            
-                            border: 2px solid white;
-                            top: 20%;
-                            left: 40%;
-                            width: 5px;
-                            height: 12px;
-                            transform: rotate(43deg);
-                            border-top: 0;
-                            border-left: 0;
-                            opacity: 0;
+                        &[type="checkbox"] {
+                            position: relative; 
+                            background-color: lightgrey;
+                            @include border-radius(5px);
+                            &:checked { background: green; }
+                            &::after {  /* check sign inside */
+                                content: '';
+                                display: block;
+                                position: absolute;                            
+                                border: 2px solid white;
+                                top: 20%;
+                                left: 40%;
+                                width: 5px;
+                                height: 12px;
+                                transform: rotate(43deg);
+                                border-top: 0;
+                                border-left: 0;
+                                opacity: 0;
+                            }
+                            &:checked::after{ opacity: 1; }
                         }
-                        &:checked::after{ opacity: 1; }
                     }
-                }
-                .requirements {
-                    visibility: hidden;
-                    padding: 1% 0%;
-                    font-size: 0.6rem;
-                    color: $red-main;
-                    font-style: italic;
-                    transition: 0.28s;
+                    .requirements {
+                        visibility: hidden;
+                        padding: 1% 0%;
+                        font-size: 0.6rem;
+                        color: $red-main;
+                        font-style: italic;
+                        transition: 0.28s;
+                    }
                 }
             }
         }
-        }
-        .btn-wrapper button {@include mlmr-auto; }
+        .btn-wrapper .submit-btn {@include mlmr-auto; height:30px;  }
 }
 
 /* fade-in out modal anim */

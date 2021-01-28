@@ -456,7 +456,6 @@ footer .copyright-wrapper p {
   position: relative;
   /* for cancel btn absolute positioning */
   width: 100%;
-  height: 20px;
 }
 .signUp-modal-wrapper__fields-wrapper .cancelModalBtn-wrapper .cancelModalBtn {
   width: 15px;
@@ -474,17 +473,15 @@ footer .copyright-wrapper p {
 .signUp-modal-wrapper__fields-wrapper form {
   margin-left: 25px;
   margin-right: 25px;
-  /*          @include flex-col-nowrap;
-              align-items: stretch; */
   font-family: Roboto;
 }
 .signUp-modal-wrapper__fields-wrapper form .field.locations {
-  background-color: blue !important;
   display: flex;
   flex-flow: row wrap;
 }
 .signUp-modal-wrapper__fields-wrapper form .field.locations .choice {
-  width: 130px;
+  /* width: 160px; */
+  margin-right: 10px;
   min-height: 50px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field.check {
@@ -494,7 +491,7 @@ footer .copyright-wrapper p {
   height: 75px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field {
-  margin: 10px 0;
+  margin: 5% 0;
   /* all text input fields + date = one liner elements */
 }
 .signUp-modal-wrapper__fields-wrapper form .field *[type=text], .signUp-modal-wrapper__fields-wrapper form .field *[type=date] {
@@ -512,7 +509,6 @@ footer .copyright-wrapper p {
   width: 100%;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input {
-  margin-top: 10px;
   padding: 0 2%;
   /* class added with js validation */
 }
@@ -531,6 +527,7 @@ footer .copyright-wrapper p {
   height: 45px;
   background-color: #fff;
   border-radius: 5px;
+  margin-top: 10px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input[type=radio], .signUp-modal-wrapper__fields-wrapper form .field input[type=checkbox] {
   /* override default appearance */
@@ -541,6 +538,7 @@ footer .copyright-wrapper p {
   outline: none;
   display: inline-block;
   vertical-align: middle;
+  margin-right: 10px;
   transition: background 0.3s, border-color 0.3s;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input[type=radio] {
@@ -548,7 +546,7 @@ footer .copyright-wrapper p {
   /* to position inside knob */
   border: 1px solid #fff;
   border-radius: 50%;
-  margin-right: 1%;
+  /*  margin-right:1%; */
 }
 .signUp-modal-wrapper__fields-wrapper form .field input[type=radio]:checked {
   border: 1px solid green;
@@ -607,9 +605,10 @@ footer .copyright-wrapper p {
   font-style: italic;
   transition: 0.28s;
 }
-.signUp-modal-wrapper .btn-wrapper button {
+.signUp-modal-wrapper .btn-wrapper .submit-btn {
   margin-left: auto;
   margin-right: auto;
+  height: 30px;
 }
 
 /* fade-in out modal anim */
