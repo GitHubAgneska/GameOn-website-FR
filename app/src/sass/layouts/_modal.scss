@@ -8,17 +8,22 @@
         width:100%;
         height:100%;
         z-index:2;
+        background-color: $white;
         @include max-600px { top: 80px; } /* leave header visible */
         @include min-600px { top:0; }
-        background-color: $white;
 
         &__fields-wrapper {
-            @include max-600px { width:100%; height:100%;}
-            @include min-600px { width:550px; max-width: 100%; height:850px; margin:auto; }
             width:50%; max-width: 100%; height:80%;
-            padding-top: 6.66vw; margin: auto;
+            margin: 3vh auto;
             background-color: $dark;
             @include border-radius(5px);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @include max-600px { width:100%; margin: 0 auto;}
+            @include min-600px { width:550px; max-width: 100%; height:850px; }
 
             .cancelModalBtn-wrapper {
                 position: relative; /* for cancel btn absolute positioning */
@@ -31,26 +36,23 @@
             } 
             form {
             margin-left:25px; margin-right: 25px;
-            @include flex-col-nowrap;
-            align-items: stretch;
+/*          @include flex-col-nowrap;
+            align-items: stretch; */
             font-family: Roboto;
-            
+        
+            .field.locations { background-color:blue !important;
+                display: flex;
+                flex-flow: row wrap; 
+                .choice { width: 130px; min-height: 50px; } }
 
-            .field.locations { 
-                height:100px;
-                .choice { 
-                    @include flex-row-nowrap;align-items:center; 
-                    width: 120px; height: 50px;
-                    
-                }
-            }
             .field.check { height:90px; }
+            .field:not(.locations) { height:75px;}
             .field {
-                height:75px; margin: 10px 0;
+                margin: 10px 0;
                 /* all text input fields + date = one liner elements */
                 *[type="text"], *[type="date"] { display: block; }
 
-                label { font-family: DMSans-regular; font-size:1rem; text-transform: capitalize;margin-bottom:10px; color: $white;}
+                label { font-family: DMSans-regular; font-size:1rem; text-transform: capitalize; margin-bottom:10px; color: $white;}
                 label[for="location"] { display: block; width: 100%; }
 
                 input { 
@@ -127,7 +129,7 @@
 
 /* fade-in out modal anim */
 @keyframes fade-in {
-    from { opacity: 0; }
+    from { opacity: 0; transform: translateY(-150px);}
     to { opacity: 1; }
 }
 
