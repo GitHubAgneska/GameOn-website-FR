@@ -332,7 +332,7 @@ button {
 /* FOOTER ===== */
 /* =============================================== */
 footer {
-  background-color: blue;
+  /* background-color: blue; */
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -378,7 +378,7 @@ footer {
   }
 }
 footer .copyright-wrapper {
-  background-color: orange;
+  /* background-color: orange; */
 }
 footer .copyright-wrapper p {
   font-family: "Roboto-regular";
@@ -711,7 +711,7 @@ header, section {
 }
 
 header {
-  background-color: lightpink;
+  /* background-color: lightpink; */
   width: 100%;
   /*  @include max-600px { padding-top: 30px; }
       @include min-600px { padding-top: 50px; }
@@ -726,7 +726,7 @@ header {
       FOOTER : max-600px {height: 8.25vh;} / min-600px {height: 14.65vh;} */
   /*  HEADER : max-600px { height:12vh;} / min-600px { height: 15vh; } */
   margin: 0 auto;
-  background-color: lightblue;
+  /* background-color: lightblue; */
   /* =============================================== */
   /* PRESENTATION SECTION ===== */
   /* =============================================== */
@@ -757,9 +757,10 @@ header {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
+  overflow: hidden;
 }
 .homepage-content-wrapper .presentation__page-title {
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 @media screen and (min-width: 600px) and (max-width: 1200px) {
   .homepage-content-wrapper .presentation__page-title {
@@ -784,7 +785,7 @@ header {
   }
 }
 .homepage-content-wrapper .presentation__page-subtitle {
-  border: 2px solid violet;
+  /* border: 2px solid violet; */
 }
 @media screen and (min-width: 600px) and (max-width: 1200px) {
   .homepage-content-wrapper .presentation__page-subtitle {
@@ -830,7 +831,7 @@ header {
   }
 }
 .homepage-content-wrapper .presentation__bloc-img {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   overflow: hidden;
   /* force img to the right */
 }
@@ -882,10 +883,14 @@ header {
   }
 }
 .homepage-content-wrapper .presentation__bloc-img picture img {
-  max-width: 100%;
+  /* max-width: 100%;
   height: auto;
   display: block;
-  border-radius: 5px;
+  border-radius: 5px; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 @media screen and (min-width: 1200px) {
   .homepage-content-wrapper .presentation__bloc-img picture img {
@@ -898,7 +903,7 @@ header {
   }
 }
 .homepage-content-wrapper .presentation .signup__btn-wrapper {
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   display: flex;
   align-items: center;
   justify-content: center;
