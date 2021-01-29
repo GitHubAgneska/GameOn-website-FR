@@ -37,11 +37,12 @@ function launchModal() {
 /* Definition of concerned dom elements --- */
 
 var signUpmodal= document.getElementById("signUp-modal");
-
 /* signup btn to open modal */
-const openModalSignUpbtn= document.getElementById("signupBtn");
+var openModalSignUpbtn= document.getElementById("signupBtn");
 /* cancel btn to close modal */
 var cancelModalBtn= document.getElementById("cancelModalBtn");
+/* form */
+var signUpForm = document.forms[0];
 /* go btn to send form data */
 var sendFormDataBtn= document.getElementById("goBtn");
 
@@ -49,14 +50,19 @@ var sendFormDataBtn= document.getElementById("goBtn");
 
 /* Affiliated functions ------------ */
 
-/* open modal on signup btn click */
+/* On modal page load/reload : RESET FORM */
+window.onload = function() {
+  signUpForm.reset();
+}
+
+/* OPEN MODAL on signup btn click */
 /* modal's attribute "display" changes from "none" to "block"  */
 /* and the "animation" attribute is used to change opacity as a transition */
 openModalSignUpbtn.onclick = function() {
   signUpmodal.setAttribute("style", "display:block; animation: fade-in 0.6s;");
 }
 
-/* close modal on cancel btn click */
+/* CLOSE MODAL on cancel btn click */
 // cancelModalBtn.onclick = function() {
   /*  + check if fields = pristine, if not, ask for confirmation */
   /* signUpmodal.setAttribute("style", "display:none ;animation: fade-out 6s;"); */
@@ -67,6 +73,8 @@ cancelModalBtn.addEventListener('click', function(event){
     signUpmodal.setAttribute("style", "animation: fade-out 0.6s;")
 
 })
+
+
 
 
 /* PROCESS FORM DATA ------------  */

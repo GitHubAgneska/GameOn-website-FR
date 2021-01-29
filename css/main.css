@@ -721,25 +721,48 @@ header {
 
 .homepage-content-wrapper {
   width: 85vw;
-  height: 100vh;
-  /* height: 70vh; */
-  background-color: lightblue;
+  /*  100vh - header+footer height */
+  /* FYI :
+      FOOTER : max-600px {height: 8.25vh;} / min-600px {height: 14.65vh;} */
+  /*  HEADER : max-600px { height:12vh;} / min-600px { height: 15vh; } */
   margin: 0 auto;
-  /* margin: 3vh auto; */
-  /* @include min-600px { margin-bottom: 100px;} */
+  background-color: lightblue;
+  /* =============================================== */
+  /* PRESENTATION SECTION ===== */
+  /* =============================================== */
 }
-
-/* =============================================== */
-/* PRESENTATION SECTION ===== */
-/* =============================================== */
-.presentation {
+@media screen and (max-width: 600px) {
+  .homepage-content-wrapper {
+    height: 80vh;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 600px) {
+  .homepage-content-wrapper {
+    height: 70vh;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+.homepage-content-wrapper .presentation {
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
 }
-.presentation__page-title {
+.homepage-content-wrapper .presentation__page-title {
   border: 2px solid red;
 }
 @media screen and (min-width: 600px) and (max-width: 1200px) {
-  .presentation__page-title {
+  .homepage-content-wrapper .presentation__page-title {
     background-color: #232323;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -751,7 +774,7 @@ header {
   }
 }
 @media screen and (min-width: 1200px) {
-  .presentation__page-title {
+  .homepage-content-wrapper .presentation__page-title {
     max-width: 660px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
@@ -760,15 +783,15 @@ header {
     -o-transition: all 1s ease-in-out;
   }
 }
-.presentation__page-subtitle {
+.homepage-content-wrapper .presentation__page-subtitle {
   border: 2px solid violet;
 }
 @media screen and (min-width: 600px) and (max-width: 1200px) {
-  .presentation__page-subtitle {
+  .homepage-content-wrapper .presentation__page-subtitle {
     width: 80%;
     text-align: center;
     margin: auto;
-    padding: 60px 0;
+    /* padding: 60px 0; */
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -777,7 +800,7 @@ header {
   }
 }
 @media screen and (min-width: 1200px) {
-  .presentation__page-subtitle {
+  .homepage-content-wrapper .presentation__page-subtitle {
     max-width: 35%;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
@@ -787,7 +810,7 @@ header {
   }
 }
 @media screen and (min-width: 600px) {
-  .presentation__page-title, .presentation__page-subtitle {
+  .homepage-content-wrapper .presentation__page-title, .homepage-content-wrapper .presentation__page-subtitle {
     color: #fff;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
@@ -797,7 +820,7 @@ header {
   }
 }
 @media screen and (min-width: 1200px) {
-  .presentation__page-title, .presentation__page-subtitle {
+  .homepage-content-wrapper .presentation__page-title, .homepage-content-wrapper .presentation__page-subtitle {
     margin-left: 50px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
@@ -806,12 +829,13 @@ header {
     -o-transition: all 1s ease-in-out;
   }
 }
-.presentation__bloc-img {
+.homepage-content-wrapper .presentation__bloc-img {
   border: 2px solid blue;
+  overflow: hidden;
   /* force img to the right */
 }
 @media screen and (min-width: 600px) {
-  .presentation__bloc-img {
+  .homepage-content-wrapper .presentation__bloc-img {
     /* block image goes to bg */
     width: 100%;
     position: absolute;
@@ -827,7 +851,7 @@ header {
   }
 }
 @media screen and (min-width: 600px) and (max-width: 1200px) {
-  .presentation__bloc-img {
+  .homepage-content-wrapper .presentation__bloc-img {
     top: 150px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
@@ -837,7 +861,7 @@ header {
   }
 }
 @media screen and (min-width: 1200px) {
-  .presentation__bloc-img {
+  .homepage-content-wrapper .presentation__bloc-img {
     top: 0;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
@@ -847,7 +871,7 @@ header {
   }
 }
 @media screen and (min-width: 1200px) {
-  .presentation__bloc-img picture {
+  .homepage-content-wrapper .presentation__bloc-img picture {
     display: flex;
     flex-direction: row-reverse;
     transition: all 1s ease-in-out;
@@ -857,13 +881,14 @@ header {
     -o-transition: all 1s ease-in-out;
   }
 }
-.presentation__bloc-img picture img {
+.homepage-content-wrapper .presentation__bloc-img picture img {
   max-width: 100%;
+  height: auto;
   display: block;
   border-radius: 5px;
 }
 @media screen and (min-width: 1200px) {
-  .presentation__bloc-img picture img {
+  .homepage-content-wrapper .presentation__bloc-img picture img {
     max-width: 60%;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
@@ -872,8 +897,12 @@ header {
     -o-transition: all 1s ease-in-out;
   }
 }
-.presentation .signup__btn-wrapper {
+.homepage-content-wrapper .presentation .signup__btn-wrapper {
   border: 2px solid orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
 }
 
 /*# sourceMappingURL=main.css.map */
