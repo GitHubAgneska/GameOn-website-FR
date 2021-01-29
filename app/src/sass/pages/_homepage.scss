@@ -67,7 +67,9 @@ header {
         height: 100%;
         display: flex;
         flex-flow: column nowrap;
-        justify-content: space-between;
+        @include max-1200px { justify-content: space-between; }
+        @include min-1200px { justify-content: center; }
+        
         overflow: hidden;
     
         &__page-title { 
@@ -103,8 +105,8 @@ header {
             picture img {
                 /* max-width: 100%;
                 height: auto;
-                display: block;
-                border-radius: 5px; */
+                display: block;  */
+                border-radius: 5px;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
@@ -112,12 +114,13 @@ header {
                 @include min-1200px { max-width:60%;}
             }
         }
-        .signup__btn-wrapper {
+        .btn-wrapper {
             /* border: 2px solid orange; */
+            margin-top: 5%;margin-bottom: 5%;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-top: 5%;margin-bottom: 5%;
+            @include max-1200px { justify-content: center; }
+            @include min-1200px { justify-content: start; margin-left: 50px; }
         }
     }
 }
