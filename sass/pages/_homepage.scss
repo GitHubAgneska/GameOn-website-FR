@@ -80,7 +80,7 @@ header {
         &__page-subtitle {
             /* border: 2px solid violet; */
             @include min600px-max1200px { width: 80%; text-align: center; margin: auto; /* padding: 60px 0; */ }
-            @include min-1200px { max-width: 35%; }
+            @include min-1200px { max-width: 30%; }
         }
         &__page-title, &__page-subtitle {
             @include min-600px { color: $white; }
@@ -115,10 +115,11 @@ header {
             }
         }
         .btn-wrapper {
-            /* border: 2px solid orange; */
-            margin-top: 5%;margin-bottom: 5%;
+            margin-top: 5%;
             display: flex;
             align-items: center;
+            @include max-600px {margin-bottom: 3%;}
+            @include min600px-max1200px {margin-bottom: 5%;}
             @include max-1200px { justify-content: center; }
             @include min-1200px { justify-content: start; margin-left: 50px; }
         }

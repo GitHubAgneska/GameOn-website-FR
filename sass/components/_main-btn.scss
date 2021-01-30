@@ -4,24 +4,24 @@
 .btn {
     background: $red-main;
     color: $white;
-    font-weight: 200 !important;
+    /* font-weight: 200 !important; */
     text-transform: capitalize;
     letter-spacing: 0.1rem;
     @include border-radius(8px);
     /* @include box-shadow; */
-    padding: 0% 3%;
-    font-size: 1rem;
+    /* padding: 0% 3%; */
+    
     @include max-600px { height: 30px; }
     &:hover {
         background: darken($red-main, 20%);
         @include box-shadow(lighten($dark, 30%));
     }
     &--signup{
-            @include min-600px { height: 55px; }
-            @include min-1200px { font-size: 1.5rem; padding: 0% 3%; }
+            @include max-600px{height: 35px; padding: 0% 8%; font-size: 1rem;}
+            @include min-600px {height: 45px; font-size: 1.5rem; padding: 0% 2%;}
     }
     &--submit {
-        @include min-600px { height: 55px; }
+        @include min-600px {height: 55px; }
         @include min-1200px {width: 200px;}
         margin: auto;
         padding: 0% 15%;  
