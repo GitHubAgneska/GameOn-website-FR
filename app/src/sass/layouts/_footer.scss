@@ -4,19 +4,27 @@
 /* =============================================== */
 
 footer { 
-    /* background-color: blue; */
     position:fixed;
     width:100%;
-    @include max-600px {height: 8.25vh;}
-    @include min-600px {height: 14.65vh;}
     bottom: 0;
-    @include max-1200px { text-align: center ;}
-    @include min-1200px { margin-left: 40px;}
+    @include max-600px {height: 8.25vh;}
+    @include min-600px {
+        height: 14.65vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    @include max-1200px { 
+        text-align: center;
+    }
+    @include min-1200px { 
+        margin-left: 40px;justify-content: unset;
+        }
     .copyright-wrapper {
-        /* background-color: orange; */
         p { font-family: 'Roboto-regular';
             color: $red-main;
             font-size: 0.7rem;
         }
     }
 }
+

@@ -358,7 +358,6 @@ button {
 /* FOOTER ===== */
 /* =============================================== */
 footer {
-  /* background-color: blue; */
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -376,6 +375,9 @@ footer {
 @media screen and (min-width: 600px) {
   footer {
     height: 14.65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -396,15 +398,13 @@ footer {
 @media screen and (min-width: 1200px) {
   footer {
     margin-left: 40px;
+    justify-content: unset;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
   }
-}
-footer .copyright-wrapper {
-  /* background-color: orange; */
 }
 footer .copyright-wrapper p {
   font-family: "Roboto-regular";
