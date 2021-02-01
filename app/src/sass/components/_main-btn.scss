@@ -21,7 +21,7 @@
             @include min-600px {height: 45px; font-size: 1.5rem; padding: 0% 2%;}
     }
     &--submit {
-        @include min-600px {height: 55px; }
+        @include min-600px {height: 38px; }
         @include min-1200px {width: 200px;}
         margin: auto;
         padding: 0% 15%;  
