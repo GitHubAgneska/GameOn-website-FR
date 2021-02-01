@@ -116,7 +116,6 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 a {
@@ -208,7 +207,7 @@ button {
 }
 @media screen and (min-width: 600px) {
   .btn--submit {
-    height: 55px;
+    height: 38px;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -419,16 +418,15 @@ footer .copyright-wrapper p {
 /* ================================== */
 .signUp-modal-wrapper {
   display: none;
-  position: fixed;
+  position: absolute;
   width: 100%;
-  height: 100%;
   z-index: 2;
   background-color: #fff;
   /* leave header visible */
 }
 @media screen and (max-width: 600px) {
   .signUp-modal-wrapper {
-    top: 80px;
+    top: 12vh;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -439,6 +437,7 @@ footer .copyright-wrapper p {
 @media screen and (min-width: 600px) {
   .signUp-modal-wrapper {
     top: 0;
+    height: 100vh;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -447,15 +446,14 @@ footer .copyright-wrapper p {
   }
 }
 .signUp-modal-wrapper__fields-wrapper {
-  width: 50%;
   max-width: 100%;
-  height: 80%;
-  margin: 3vh auto;
+  padding-top: 15px;
   background-color: #232323;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: scroll;
 }
 @media screen and (max-width: 600px) {
   .signUp-modal-wrapper__fields-wrapper {
@@ -473,6 +471,7 @@ footer .copyright-wrapper p {
     width: 550px;
     max-width: 100%;
     height: 850px;
+    margin: 3vh auto;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -486,8 +485,8 @@ footer .copyright-wrapper p {
   width: 100%;
 }
 .signUp-modal-wrapper__fields-wrapper .cancelModalBtn-wrapper .cancelModalBtn {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   position: absolute;
   right: 15px;
 }
@@ -497,25 +496,25 @@ footer .copyright-wrapper p {
   justify-content: center;
   align-items: center;
   color: #fff;
+  font-size: 1.2rem !important;
 }
 .signUp-modal-wrapper__fields-wrapper form {
   margin-left: 25px;
   margin-right: 25px;
-  font-family: Roboto;
+  font-family: Roboto, Arial, sans-serif;
 }
 .signUp-modal-wrapper__fields-wrapper form .field.locations {
   display: flex;
   flex-flow: row wrap;
 }
 .signUp-modal-wrapper__fields-wrapper form .field.locations .choice {
-  /* width: 160px; */
   margin-right: 10px;
-  min-height: 50px;
+  min-height: 30px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field.check {
   height: 90px;
 }
-.signUp-modal-wrapper__fields-wrapper form .field:not(.locations) {
+.signUp-modal-wrapper__fields-wrapper form .field:not(.locations), .signUp-modal-wrapper__fields-wrapper form .field:not(.check) {
   height: 75px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field {
@@ -526,15 +525,20 @@ footer .copyright-wrapper p {
   display: block;
 }
 .signUp-modal-wrapper__fields-wrapper form .field label {
-  font-family: DMSans-regular;
-  font-size: 1rem;
+  font-family: DMSans-regular, Arial, sans-serif;
   text-transform: capitalize;
   margin-bottom: 10px;
   color: #fff;
 }
+.signUp-modal-wrapper__fields-wrapper form .field label:not(.city), .signUp-modal-wrapper__fields-wrapper form .field label:not(.lorem) {
+  font-size: 0.8rem;
+}
+.signUp-modal-wrapper__fields-wrapper form .field label.lorem, .signUp-modal-wrapper__fields-wrapper form .field label.city {
+  font-size: 0.6rem;
+}
 .signUp-modal-wrapper__fields-wrapper form .field label[for=location] {
   display: block;
-  width: 100%;
+  width: 50%;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input {
   padding: 0 2%;
@@ -542,10 +546,10 @@ footer .copyright-wrapper p {
 }
 .signUp-modal-wrapper__fields-wrapper form .field input:focus {
   outline: 0;
-  border-color: green;
+  border-color: #279E7A;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input:valid:focus {
-  border: 2px solid green;
+  border: 2px solid #279E7A;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input .invalid {
   border: 2px solid #FE142F;
@@ -561,12 +565,12 @@ footer .copyright-wrapper p {
   /* override default appearance */
   -moz-appearance: none;
   -webkit-appearance: none;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   outline: none;
   display: inline-block;
   vertical-align: middle;
-  margin-right: 10px;
+  margin-right: 6px;
   transition: background 0.3s, border-color 0.3s;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input[type=radio] {
@@ -574,20 +578,19 @@ footer .copyright-wrapper p {
   /* to position inside knob */
   border: 1px solid #fff;
   border-radius: 50%;
-  /*  margin-right:1%; */
 }
 .signUp-modal-wrapper__fields-wrapper form .field input[type=radio]:checked {
-  border: 1px solid green;
+  border: 1px solid #279E7A;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input[type=radio]::after {
   /* inside knob */
   content: "";
   display: block;
   position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 20px;
-  height: 20px;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
   border-radius: 50%;
   opacity: 0;
   display: flex;
@@ -596,7 +599,7 @@ footer .copyright-wrapper p {
   align-items: center;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input[type=radio]:checked::after {
-  background: green;
+  background: #279E7A;
   opacity: 1;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input[type=checkbox] {
@@ -605,18 +608,18 @@ footer .copyright-wrapper p {
   border-radius: 5px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input[type=checkbox]:checked {
-  background: green;
+  background: #279E7A;
 }
 .signUp-modal-wrapper__fields-wrapper form .field input[type=checkbox]::after {
   /* check sign inside */
   content: "";
   display: block;
   position: absolute;
-  border: 2px solid white;
-  top: 20%;
-  left: 40%;
-  width: 5px;
-  height: 12px;
+  border: 2px solid #fff;
+  width: 4px;
+  height: 10px;
+  top: 10%;
+  left: 35%;
   transform: rotate(43deg);
   border-top: 0;
   border-left: 0;
@@ -632,6 +635,9 @@ footer .copyright-wrapper p {
   color: #FE142F;
   font-style: italic;
   transition: 0.28s;
+}
+.signUp-modal-wrapper .btn-wrapper {
+  padding-bottom: 20px;
 }
 .signUp-modal-wrapper .btn-wrapper .submit-btn {
   margin-left: auto;
@@ -666,7 +672,7 @@ h1, h2 {
 
 h1 {
   margin: 0;
-  font-family: "DMSans-medium";
+  font-family: "DMSans-medium", Arial, sans-serif;
   font-size: 11vw;
   /* max size */
 }
@@ -682,7 +688,7 @@ h1 {
 }
 
 h2 {
-  font-family: "DMSans-regular";
+  font-family: "DMSans-regular", Arial, sans-serif;
   font-size: 3vw;
   /* max size */
 }
@@ -708,7 +714,7 @@ h2 {
 }
 
 nav a {
-  font-family: "DMSans-regular";
+  font-family: "DMSans-regular", Arial, sans-serif;
   font-size: 2vw;
   /* max size */
 }
