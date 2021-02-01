@@ -36,7 +36,7 @@
         a:not(.burger) { 
             /* mobile/tablet : nav elements = not visible */
             @include max-992px{ display: none; }
-            padding: 12px 16px;
+            padding: 8px 16px;
             margin: auto;
         }
         a.active { 
