@@ -8,10 +8,7 @@ h1 {
     margin: 0;
     font-family:'DMSans-medium';
     font-size: 11vw;
-    @include min-992px {font-size: 86px; } /* max size */
-    /* @include max-600px { margin: 10px 0px; }
-       @include min600px-max992px { margin: 5px 0px; padding:2%; } */
-   /*  @include min-1200px {margin-top:0; padding-top:80px; }  */
+    @include min-992px {font-size: 96px; } /* max size */
 }
 h2 {
     font-family:'DMSans-regular';
@@ -30,34 +27,17 @@ nav a {
 /* ===  HOMEPAGE -  MAIN SECTIONS RULES === */
 /* =============================================== */
 
-header, section  {
+header { width:100%;}
 
-    /* for viewport 375: 25px = 0.66vw */
-    /* @include max-600px { margin: 0vw 6.66vw 6.66vw 6.66vw; } */
-    /* for viewport 600: 50px = 8.33vw */
-    /* @include min600px-max992px { margin-left: 8.33vw; margin-right: 8.33vw; } */
-    /* for viewport 992: 100px = 13vw */
-    /* @include min-992px { margin-left: 13vw; margin-right: 13vw; } */
-}
-header { 
-    /* background-color: lightpink; */
-    width:100%;
-/*  @include max-600px { padding-top: 30px; }
-    @include min-600px { padding-top: 50px; }
-    @include min600px-max992px { margin-bottom: 50px; } 
-    @include min-992px { margin-bottom: 80px;} */
-}
 .homepage-content-wrapper {
     width: 85vw;
-    
+    margin: 0 auto;
     @include max-600px { height: 80vh; }/*  100vh - header+footer height */
     @include min-600px { height: 70vh; }
     /* FYI :
         FOOTER : max-600px {height: 8.25vh;} / min-600px {height: 14.65vh;} */
     /*  HEADER : max-600px { height:12vh;} / min-600px { height: 15vh; } */
-    margin: 0 auto;
 
-    /* background-color: lightblue; */
 
     /* =============================================== */
     /* PRESENTATION SECTION ===== */
@@ -67,18 +47,15 @@ header {
         height: 100%;
         display: flex;
         flex-flow: column nowrap;
+        overflow: hidden;
         @include max-1200px { justify-content: space-between; }
         @include min-1200px { justify-content: center; }
         
-        overflow: hidden;
-    
         &__page-title { 
-            /* border: 2px solid red; */
             @include min600px-max1200px { background-color: $dark; border-top-left-radius: 5px;border-top-right-radius: 5px;}
             @include min-1200px { max-width: 660px; }  
         }
         &__page-subtitle {
-            /* border: 2px solid violet; */
             @include min600px-max1200px { width: 80%; text-align: center; margin: auto; /* padding: 60px 0; */ }
             @include min-1200px { max-width: 30%; }
         }
@@ -86,15 +63,12 @@ header {
             @include min-600px { color: $white; }
             @include min-1200px { margin-left: 50px; }
         }
-    
         &__bloc-img { 
-            /* border: 2px solid blue; */
             overflow: hidden;
             @include min-600px {
                 /* block image goes to bg */
                 width:100%;
                 position: absolute; 
-                /* top: 100px; */
                 z-index:-1;
                 background-color: $dark; /* + dark block on img left */
             }
@@ -103,9 +77,6 @@ header {
             /* force img to the right */
             picture { @include min-1200px {display: flex; flex-direction: row-reverse;}}
             picture img {
-                /* max-width: 100%;
-                height: auto;
-                display: block;  */
                 border-radius: 5px;
                 width: 100%;
                 height: 100%;
