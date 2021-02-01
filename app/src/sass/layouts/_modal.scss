@@ -11,19 +11,21 @@
         @include max-600px { top: 12vh; } /* leave header visible */
         @include min-600px { top:0; height: 100vh; }
 
+
         &__fields-wrapper {
+
             max-width: 100%; 
-            padding-top:15px;
             background-color: $dark;
             @include border-radius(5px);
-
             display: flex;
             flex-direction: column;
             justify-content: center;
-            overflow: scroll;
-
+            
             @include max-600px { width:100%; margin: 0 auto;}
             @include min-600px { width:550px; max-width: 100%; height:850px; margin: 3vh auto; }
+            /* display: none; */
+            padding-top:15px;
+            overflow: scroll;
 
             .cancelModalBtn-wrapper {
                 position: relative; /* for cancel btn absolute positioning */
@@ -33,8 +35,22 @@
                     position: absolute; right:15px;
                     i { @include icon-base; color: $white; font-size:1.2rem !important;}
                 }
-            } 
+            }
+            
+            .confirmation-message-wrapper {
+                height:80vh;
+                margin-left:35px; margin-right: 35px;
+                display: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                h1 {font-family: "DMSans-regular", Arial, sans-serif;
+                    font-size: 3rem; color: $white; }
+            }
+
             form {
+                display: none;
                 margin-left:25px; margin-right: 25px;
                 font-family: Roboto, Arial, sans-serif;
             
@@ -45,7 +61,6 @@
                         margin-right: 10px; min-height: 30px;
                     } 
                 }
-
                 .field.check { height:90px; }
                 .field:not(.locations), .field:not(.check) { height:75px;}
                 .field {

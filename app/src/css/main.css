@@ -447,12 +447,13 @@ footer .copyright-wrapper p {
 }
 .signUp-modal-wrapper__fields-wrapper {
   max-width: 100%;
-  padding-top: 15px;
   background-color: #232323;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* display: none; */
+  padding-top: 15px;
   overflow: scroll;
 }
 @media screen and (max-width: 600px) {
@@ -498,7 +499,23 @@ footer .copyright-wrapper p {
   color: #fff;
   font-size: 1.2rem !important;
 }
+.signUp-modal-wrapper__fields-wrapper .confirmation-message-wrapper {
+  height: 80vh;
+  margin-left: 25px;
+  margin-right: 25px;
+  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.signUp-modal-wrapper__fields-wrapper .confirmation-message-wrapper h1 {
+  font-family: "DMSans-regular", Arial, sans-serif;
+  font-size: 8vw;
+  color: #fff;
+}
 .signUp-modal-wrapper__fields-wrapper form {
+  display: none;
   margin-left: 25px;
   margin-right: 25px;
   font-family: Roboto, Arial, sans-serif;
