@@ -6,13 +6,6 @@
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-
-/*     transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out; */
-
     scroll-behavior: smooth;
 }
 
@@ -33,5 +26,6 @@ input { border: transparent; cursor:pointer;}
 ul { margin: 0; padding: 0;}
 ul li { list-style: none; }
 button {  display: block; border: none;  cursor: pointer; }
-/* h1, h2, h3, h4 {font-weight: normal !important; } */
+
+
 

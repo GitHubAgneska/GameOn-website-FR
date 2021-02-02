@@ -98,11 +98,6 @@
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  /*     transition: all 1s ease-in-out;
-      -webkit-transition: all 1s ease-in-out;
-      -ms-transition: all 1s ease-in-out;
-      -moz-transition: all 1s ease-in-out;
-      -o-transition: all 1s ease-in-out; */
   scroll-behavior: smooth;
 }
 
@@ -144,7 +139,6 @@ button {
   cursor: pointer;
 }
 
-/* h1, h2, h3, h4 {font-weight: normal !important; } */
 /* =============================================== */
 /* MAIN BUTTON ===== */
 /* =============================================== */
@@ -418,6 +412,7 @@ footer .copyright-wrapper p {
 /* ================================== */
 .signUp-modal-wrapper {
   display: none;
+  /* default before user clicks 'signup' */
   position: absolute;
   width: 100%;
   z-index: 2;
@@ -452,7 +447,6 @@ footer .copyright-wrapper p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* display: none; */
   padding-top: 15px;
   overflow: scroll;
 }
@@ -499,23 +493,8 @@ footer .copyright-wrapper p {
   color: #fff;
   font-size: 1.2rem !important;
 }
-.signUp-modal-wrapper__fields-wrapper .confirmation-message-wrapper {
-  height: 80vh;
-  margin-left: 25px;
-  margin-right: 25px;
-  display: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.signUp-modal-wrapper__fields-wrapper .confirmation-message-wrapper h1 {
-  font-family: "DMSans-regular", Arial, sans-serif;
-  font-size: 8vw;
-  color: #fff;
-}
 .signUp-modal-wrapper__fields-wrapper form {
-  display: none;
+  /* IN JS: +display: none; =>  after user clicks 'submit' */
   margin-left: 25px;
   margin-right: 25px;
   font-family: Roboto, Arial, sans-serif;
@@ -652,6 +631,22 @@ footer .copyright-wrapper p {
   color: #FE142F;
   font-style: italic;
   transition: 0.28s;
+}
+.signUp-modal-wrapper__fields-wrapper .confirmation-message-wrapper {
+  height: 80vh;
+  margin-left: 35px;
+  margin-right: 35px;
+  display: none;
+  /* default before user clicks 'submit' */
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.signUp-modal-wrapper__fields-wrapper .confirmation-message-wrapper h1 {
+  font-family: "DMSans-regular", Arial, sans-serif;
+  font-size: 3rem;
+  color: #fff;
 }
 .signUp-modal-wrapper .btn-wrapper {
   padding-bottom: 20px;
