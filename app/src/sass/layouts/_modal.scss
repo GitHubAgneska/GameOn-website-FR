@@ -3,7 +3,7 @@
 /* ================================== */
 
 .signUp-modal-wrapper {
-        display: none;
+        display: none; /* default before user clicks 'signup' */
         position: absolute;
         width:100%;
         z-index:2;
@@ -20,12 +20,11 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding-top:15px;
+            overflow: scroll;
             
             @include max-600px { width:100%; margin: 0 auto;}
             @include min-600px { width:550px; max-width: 100%; height:850px; margin: 3vh auto; }
-            /* display: none; */
-            padding-top:15px;
-            overflow: scroll;
 
             .cancelModalBtn-wrapper {
                 position: relative; /* for cancel btn absolute positioning */
@@ -36,21 +35,9 @@
                     i { @include icon-base; color: $white; font-size:1.2rem !important;}
                 }
             }
-            
-            .confirmation-message-wrapper {
-                height:80vh;
-                margin-left:35px; margin-right: 35px;
-                display: none;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                h1 {font-family: "DMSans-regular", Arial, sans-serif;
-                    font-size: 3rem; color: $white; }
-            }
 
             form {
-                display: none;
+                /* IN JS: +display: none; =>  after user clicks 'submit' */
                 margin-left:25px; margin-right: 25px;
                 font-family: Roboto, Arial, sans-serif;
             
@@ -146,6 +133,17 @@
                         transition: 0.28s;
                     }
                 }
+            }
+            .confirmation-message-wrapper {
+                height:80vh;
+                margin-left:35px; margin-right: 35px;
+                display: none; /* default before user clicks 'submit' */
+                /* display: flex; */
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                h1 {font-family: "DMSans-regular", Arial, sans-serif;
+                    font-size: 3rem; color: $white; }
             }
         }
         .btn-wrapper {padding-bottom: 20px; }
