@@ -84,60 +84,60 @@
 
             <div class="field">
               <label for="lastName">last name</label>
-              <input type="text" name="lastName" id="lastName" required minlength="2">
+              <input type="text" name="lastName" id="lastName">
               <div class="requirements">Lastname must be at least 2 characters</div>
             </div>
             
             <div class="field">
               <label for="email">email</label>
-              <input type="email" name="email" id="email" required>
+              <input type="email" name="email" id="email">
               <div class="requirements">Please enter a valid email address</div>
             </div>
             
             <div class="field">
               <label for="birthdate">birthdate</label>
-              <input type="date" name="birthdate" id="birthdate" required>
+              <input type="date" name="birthdate" id="birthdate">
               <div class="requirements">Please enter your date of birth</div>
             </div>
             
             <div class="field">
               <label for="tournaments">how many tournaments have you attended?</label>
-              <input type="text" name="tournaments" id="tournaments" required>
+              <input type="text" name="tournaments" id="tournaments">
               <div class="requirements">Please enter a number</div>
             </div>
 
-            <div class="field locations">
+            <div class="field locations" id="locations">
 
               <label for="location">which location?</label>
               <div class="requirements">Please select a location</div>
 
               <div class="choice">
-                <input type="radio" name="location" id="new York" value="new York" required><label class="city" for="new york">new york</label>
+                <input type="radio" name="location" id="newYork" value="new York"><label class="city" for="new york">new york</label>
               </div>
               <div class="choice">
-                <input type="radio" name="location" id="san francisco" value="san francisco" required><label class="city" for="san francisco">san francisco</label>
+                <input type="radio" name="location" id="sanFrancisco" value="san francisco"><label class="city" for="san francisco">san francisco</label>
               </div>
               <div class="choice">
-                <input type="radio" name="location" id="seattle" value="seattle" required><label class="city" for="seattle">seattle</label>
+                <input type="radio" name="location" id="seattle" value="seattle"><label class="city" for="seattle">seattle</label>
               </div>
               <div class="choice">
-                <input type="radio" name="location" id="chicago" value="chicago" required><label class="city" for="chicago">chicago</label>
+                <input type="radio" name="location" id="chicago" value="chicago"><label class="city" for="chicago">chicago</label>
               </div>
               <div class="choice">
-                <input type="radio" name="location" id="boston" value="boston" required><label class="city" for="boston">boston</label>
+                <input type="radio" name="location" id="boston" value="boston"><label class="city" for="boston">boston</label>
               </div>
               <div class="choice">
-                <input type="radio" name="location" id="portland" value="portland" required><label class="city" for="portland">portland</label>
+                <input type="radio" name="location" id="portland" value="portland"><label class="city" for="portland">portland</label>
               </div>
             </div>
 
-            <div class="field check">
+            <div class="field check" id="checkbox">
               <div>
-                <input type="checkbox" name="lorem1" id="lorem1"  checked="checked" required>
+                <input type="checkbox" name="lorem1" id="lorem1">
                 <label class="lorem" for="lorem1">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
               </div>
               <div>
-              <input type="checkbox" name="lorem2" id="lorem2" checked="unchecked" required>
+              <input type="checkbox" name="lorem2" id="lorem2">
               <label class="lorem" for="lorem2">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
               </div>
               <div class="requirements">Please check the user agreement</div>
