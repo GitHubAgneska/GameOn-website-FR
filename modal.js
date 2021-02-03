@@ -147,10 +147,6 @@ function validateFormInputs() {
   } else { 
     /* if field valid : set field in valid object to true */
     valid.firstName = true;
-
-                                                  /* if requirements message visible, hide it */
-                                                /*  if ( firstName.requirementIsVisible ) {
-                                                  removeRequirementsMessage('firstName');} */
   }
   
   /* CHECK LASTNAME FIELD IS VALID */
@@ -169,9 +165,6 @@ function validateFormInputs() {
   } else { 
     /* if field valid : set field in valid object to true */
     valid.lastName = true;
-    /* if requirements message visible, hide it */
-    if ( requirementIsVisible ) {
-    removeRequirementsMessage('lastName');}
   }
 
   /* CHECK EMAIL FIELD IS VALID */
@@ -190,9 +183,6 @@ function validateFormInputs() {
   } else { 
     /* if field valid : set field in valid object to true */
     valid.email = true;
-    /* if requirements message visible, hide it */
-    if ( requirementIsVisible ) {
-    removeRequirementsMessage('email');}
   }
 
   /* CHECK DOB FIELD IS VALID */
@@ -212,9 +202,6 @@ function validateFormInputs() {
   } else { 
     /* if field valid : set field in valid object to true */
     valid.birthdate = true;
-    /* if requirements message visible, hide it */
-    if ( requirementIsVisible ) {
-    removeRequirementsMessage('birthdate');}
   }
 
   /* CHECK TOURNAMENTS FIELD IS VALID */
@@ -234,9 +221,6 @@ function validateFormInputs() {
     } else { 
       /* if field valid : set field in valid object to true */
       valid.tournaments = true;
-      /* if requirements message visible, hide it */
-      if ( requirementIsVisible ) {
-      removeRequirementsMessage('tournaments');}
     }
 
   /* CHECK LOCATION FIELD IS VALID */
@@ -258,9 +242,6 @@ function validateFormInputs() {
     } else { 
       /* if field valid : set field in valid object to true */
       valid.locations = true;
-      /* if requirements message visible, hide it */
-      if ( requirementIsVisible ) {
-      removeRequirementsMessage('locations');}
     }
 
      /* CHECK USER AGREEMENT FIELD IS VALID */
@@ -269,22 +250,18 @@ function validateFormInputs() {
     /* & describe its validation condition  (user agreement checkbox must be checked ) */
     const userAgreementTest = document.querySelector('input[type="checkbox"]:checked');
 
-    /* if test fails */
+    /* if test fails (no box checked) */
     if ( !userAgreementTest ) { 
        /* mark fiels as not valid */
         checkbox.isValid = false;
         /* call function to set error in field */
         setRequirementsMessage('checkbox');
-        /* add element to array  */
+        /* add input element to array to then add event listener */
         notValid.push(checkbox);
 
       } else { 
         /* if field valid : set field in valid object to true */
         valid.checkbox = true;
-        /* if requirements message visible, hide it */
-        if ( requirementIsVisible ) {
-        removeRequirementsMessage('checkbox');
-        }
       }
 
       /* add input event on every field input marked as invalid */
@@ -335,7 +312,7 @@ function setRequirementsMessage(id) {
 function removeRequirementsMessage(id) {
   /* locate concerned dom element (id param) */
   var elementFromId = document.getElementById(id);
-  // console.log('RM - elementFromId ==', elementFromId);
+  console.log('RM - elementFromId ==', elementFromId);
 
   /* locate corresponding '.requirement' class element 
   ( = first immediate following id ('#id + .class') or descending class attribute ('#id > .class') */
@@ -344,7 +321,7 @@ function removeRequirementsMessage(id) {
 
   requirement.style.visibility = 'hidden';
   elementFromId.style.border = 'none';
-  
+
   /* CHECK MESSAGE VISIBLE  */
   /* if field's requirements are visible  */
   // if ( elementFromId.requirementIsVisible ) {
@@ -372,6 +349,9 @@ sendFormDataBtn.addEventListener('click', function(event){
     return isFormValid; // store form state
     } else { // isFormValid = true
       createNewUserFromData(); // create new user array
+
+      /* TODO -- consider refactoring the following with 'replaceChild()' & the like methods */
+      /* ------- and moving it out of this function  */
       /* hide form */
       signUpForm.style.display = 'none';
       /* display confirmation message */
