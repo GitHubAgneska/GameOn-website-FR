@@ -27,6 +27,8 @@ function launchModal() {
  */
 
 
+
+/* ------------------------------------- */
 /* ------------------------------------- */
 /* SIGNUP MODAL */
 /* ------------------------------------- */
@@ -40,13 +42,20 @@ var openModalSignUpbtn= document.getElementById("signupBtn");
 /* cancel btn to close modal */
 var cancelModalBtn= document.getElementById("cancelModalBtn");
 /* form */
-var signUpForm = document.forms[0];
+var signUpForm = document.forms[0]; // or -  document.getElementById('signUp-form');
 /* go btn to send form data */
 var sendFormDataBtn= document.getElementById("goBtn");
 
 /* dom elements: INPUTS */
 var inputs = document.getElementById('signUp-form').elements;
 var inputsTouched = false;
+
+/* dom elements: requirements  */
+var requirementIsVisible = false;
+
+/* confirmation message (after submit passed) */
+var signedUpConfirmationMessage = document.getElementsByClassName('confirmation-message-wrapper');
+
 
 
 /* Affiliated functions ------------ */
@@ -64,7 +73,6 @@ openModalSignUpbtn.onclick = function() {
 }
 
 
-
 /* CHECKING IF FIELDS HAVE BEEN TOUCHED */
 document.addEventListener('input', function(event) {
   event.stopPropagation();
@@ -72,19 +80,25 @@ document.addEventListener('input', function(event) {
   console.log('Some fields have been touched!');
 })
 
+/* CLOSE MODAL ON CANCEL BTN */
 cancelModalBtn.addEventListener('click', function(event){
     event.stopPropagation();
+
     /* before closing, check if fields = touched */
-    if (inputsTouched) { /* if touched, ask for confirmation  */
+    if (inputsTouched) { 
+      /* if touched, ask for confirmation  */
       confirm('are you sure you want to close modal?');
-      /* if user hits 'cancel' */
-      if(!confirm) { return;}
+      /* if user hits 'cancel' (no) */
+      if(!confirm) {  }
       else {/* if user hits 'OK' */
         /* close modal + reset form */
         signUpmodal.setAttribute("style", "animation: fade-out 0.6s;");
+        /* reset form fields */
         signUpForm.reset();
+
       }
-    }
+      /* if untouched, just close modal  */
+    } else { signUpmodal.setAttribute("style", "animation: fade-out 0.6s;")};
 })
 
 
@@ -104,8 +118,10 @@ function validateFormInputs() {
   /*  store form state */
   var isFormValid = false;
   
+
   /* DEFINITION OF EACH FIELD'S CUSTOM VALIDATION */
   /* ------------------------------------------------------ */
+  /* CHECK FIRSTNAME FIELD IS VALID */
   /* locate concerned dom element */
   const firstName = document.getElementById('firstName');
   /* describe its validation condition  */
@@ -120,9 +136,11 @@ function validateFormInputs() {
     /* if field valid : set field in valid object to true */
     valid.firstName = true;
     /* if requirements message visible, hide it */
-    removeRequirementsMessage('firstName');
+    if ( requirementIsVisible ) {
+    removeRequirementsMessage('firstName');}
   }
   
+  /* CHECK LASTNAME FIELD IS VALID */
   /* locate concerned dom element */
   const lastName = document.getElementById('lastName');
   /* describe its validation condition  */
@@ -137,9 +155,11 @@ function validateFormInputs() {
     /* if field valid : set field in valid object to true */
     valid.lastName = true;
     /* if requirements message visible, hide it */
-    removeRequirementsMessage('lastName');
+    if ( requirementIsVisible ) {
+    removeRequirementsMessage('lastName');}
   }
 
+  /* CHECK EMAIL FIELD IS VALID */
   /* locate concerned dom element */
   const email = document.getElementById('email');
   /* describe its validation condition  */
@@ -154,15 +174,18 @@ function validateFormInputs() {
     /* if field valid : set field in valid object to true */
     valid.email = true;
     /* if requirements message visible, hide it */
-    removeRequirementsMessage('email');
+    if ( requirementIsVisible ) {
+    removeRequirementsMessage('email');}
   }
 
+  /* CHECK DOB FIELD IS VALID */
   /* locate concerned dom element */
   const birthdate = document.getElementById('birthdate');
   /* describe its validation condition  */
-  const birthdateCorrectFormat = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/;
-  const birtdateTest = birthdate.value.match(birthdateCorrectFormat);
-  if ( !birtdateTest ) { 
+  const birthdateCorrectFormat = /^\d{4}-\d{2}-\d{2}$/;
+  const birthdateTest = (birthdate.value).match(birthdateCorrectFormat);
+  
+  if ( !birthdateTest ) { 
     /* mark fiels as not valid */
     birthdate.isValid = false;
     /* call function to set error in field */
@@ -171,56 +194,70 @@ function validateFormInputs() {
     /* if field valid : set field in valid object to true */
     valid.birthdate = true;
     /* if requirements message visible, hide it */
-    removeRequirementsMessage('birthdate');
+    if ( requirementIsVisible ) {
+    removeRequirementsMessage('birthdate');}
   }
 
+  /* CHECK TOURNAMENTS FIELD IS VALID */
   /* locate concerned dom element */
   const tournaments = document.getElementById('tournaments');
-  /* describe its validation condition  */
-  const tournamentsTest = typeof(tournaments.value) === Number;
+  /* describe its validation condition : DOB str should contain only digits */
+  const tournamentsTest = /^\d+$/.test(tournaments.value);
+
   if ( !tournamentsTest ) {
       /* mark fiels as not valid */
       tournaments.isValid = false;
       /* call function to set error in field */
       setRequirementsMessage('tournaments');
+
     } else { 
       /* if field valid : set field in valid object to true */
       valid.tournaments = true;
       /* if requirements message visible, hide it */
-      removeRequirementsMessage('tournaments');
+      if ( requirementIsVisible ) {
+      removeRequirementsMessage('tournaments');}
     }
 
+  /* CHECK LOCATION FIELD IS VALID */
   /* locate concerned dom element */
-  const locations = Array.from(document.querySelectorAll('input[type="radio"]'));
+  const locations = document.getElementById('locations');
+  /* const locations = Array.from(document.querySelectorAll('input[type="radio"]')); */
   var locationChecked = document.querySelector('input[name="location"]:checked');
   /* describe its validation condition  */
-  const locationTest = locations.includes(locationChecked);
-  if ( !locationTest ) { 
+  if ( !locationChecked ) { 
+  /* if ( !locationTest ) {  */
       /* mark fiels as not valid */
       locations.isValid = false;
       /* call function to set error in field */
       setRequirementsMessage('locations');
+
     } else { 
       /* if field valid : set field in valid object to true */
       valid.locations = true;
       /* if requirements message visible, hide it */
-      removeRequirementsMessage('locations');
+      if ( requirementIsVisible ) {
+      removeRequirementsMessage('locations');}
     }
 
+     /* CHECK USER AGREEMENT FIELD IS VALID */
     /* locate concerned dom element */
-    const checkbox = document.getElementById('lorem1');// const checkbox1B = document.querySelector('input[type="checkbox"]:checked');
-    /* describe its validation condition  (user agrement checkbox must be checked  + second one unchecked) */
-    const userAgreementTest = checkbox.value !== null;
+    /* & describe its validation condition  (user agreement checkbox must be checked ) */
+    const userAgreementTest = document.querySelector('input[type="checkbox"]:checked');
+
+    /* if test fails */
     if ( !userAgreementTest ) { 
        /* mark fiels as not valid */
         checkbox.isValid = false;
         /* call function to set error in field */
         setRequirementsMessage('checkbox');
+
       } else { 
         /* if field valid : set field in valid object to true */
         valid.checkbox = true;
         /* if requirements message visible, hide it */
+        if ( requirementIsVisible ) {
         removeRequirementsMessage('checkbox');
+        }
       }
 
       /* CAN FORM BE SUBMITTED? :  */
@@ -230,22 +267,33 @@ function validateFormInputs() {
           isFormValid = false;
           break; /* stop loop as error was found */
         }
-        isFormValid = true; /* no errors in validation process: form is valid */
+        isFormValid = true; /* else no errors in validation process: form is valid */
       }
-
+      return isFormValid;
 }
 
 /* if field not valid : show its requirements for validation  */
-/* ------------------------------------------------------ */
+/* ---------------------------------------------------------- */
 function setRequirementsMessage(id) {
   /* locate concerned dom element (id param) */
   var elementFromId = document.getElementById(id);
-  /* locate corresponding '.requirement' class element ( = first immediate following id )*/
-  var requirement = document.querySelector( '#'+ id  + '+ .requirements'); /* ('#id + .class') */
-  
-  /* set element's requirements attributes to be visible */
-  requirement.style.visibility = 'visible';
-  elementFromId.style.border = '2px solid red';
+  console.log('SET elementFromId ==', elementFromId);
+  /* locate corresponding '.requirement' class element 
+  ( = first immediate following id ('#id + .class') or descending class attribute ('#id > .class') */
+  var requirement = document.querySelector( '#'+ id  + '+ .requirements') || document.querySelector( '#'+ id  + ' > .requirements');
+  console.log('SET REQUIREMENT=', requirement);
+
+
+  /* if requirements are NOT already visible  */
+  if ( ! elementFromId.requirementIsVisible ) {
+    /* set element's requirements attributes to be visible */
+    requirement.style.visibility = 'visible';
+    elementFromId.style.border = '2px solid red';
+    /* store requirements visibility as on */
+    elementFromId.requirementIsVisible = true;
+    /* if requirements are already visible, don't do anything */
+  } else { return ;}
+
 }
 
 /* if field valid after correction : hide its requirements for validation  */
@@ -253,12 +301,21 @@ function setRequirementsMessage(id) {
 function removeRequirementsMessage(id) {
   /* locate concerned dom element (id param) */
   var elementFromId = document.getElementById(id);
-  /* locate corresponding requirement element */
-  var requirement = document.querySelector('#'+ id  + '+ .requirements'); /* ('#id + .class') */
+  console.log('RM - elementFromId ==', elementFromId);
 
-  /* set element's requirements attributes to be invisible */
-  requirement.style.visibility = 'invisible';
-  elementFromId.style.border = 'none';
+  /* locate corresponding '.requirement' class element ( = first immediate following id )*/
+  var requirement = document.querySelector('#'+ id  + '+ .requirements'); /* ('#id + .class') */
+  console.log('REQUIREMENT=', requirement);
+
+  /* if field's requirements are visible  */
+  if ( elementFromId.requirementIsVisible ) {
+    /* set element's requirements attributes to be invisible */
+    requirement.style.visibility = 'invisible';
+    elementFromId.style.border = 'none';
+    requirementIsVisible = false;
+  /* if requirements are already NOT visible  */
+  } else { return ;}
+  
 }
 
 
@@ -270,11 +327,18 @@ sendFormDataBtn.addEventListener('click', function(event){
   event.preventDefault();
   event.stopPropagation();
 
-  validateFormInputs();
+  /* validate fields on submit : validateFormInputs() returns a boolean that gets stored in local var */
+  var isFormValid = validateFormInputs();  
 
   // If the form did not validate, prevent it being submitted
-  if (! isFormValid) { // If isFormValid is not true
-    e.preventDefault(); // Prevent the form being submitted
+  if ( !isFormValid ) { // If isFormValid is not true
+    event.preventDefault(); // Prevent the form being submitted
+    } else { 
+      createNewUserFromData(); // create new user array
+      /* hide form */
+      signUpForm.style.display = 'none';
+      /* display confirmation message */
+      signedUpConfirmationMessage.style.display = 'flex';
     }
 
   });
