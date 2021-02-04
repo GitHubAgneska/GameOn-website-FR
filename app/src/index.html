@@ -14,17 +14,20 @@
       <div class="header">
         <div class="header__logo-wrapper">
           <img src="assets/logo/logo_S.png" 
-          srcset="assets/logo/logo_M.png 600w,
-                  assets/logo/logo_L.png 1000w"
-          sizes="(max-width: 1100px) 100vw, 1100px,calc(95vw - 1.375em)"
-          alt="logo">
+              srcset="assets/logo/logo_M.png 600w,
+                      assets/logo/logo_L.png 1000w"
+              sizes="(max-width: 1100px) 100vw, 1100px,calc(95vw - 1.375em)"
+              alt="logo">
         </div>
-        <nav class="header__nav">
+        <nav class="header__nav--default" id="header__nav">
           <a href="" class="active">Event details</a>
           <a href="">About us</a>
           <a href="">Contact</a>
           <a href="">Past events</a>
-          <a href="" class="burger"><i class="fas fa-bars"></i></a>
+          <a href="" class="burger" id="burger-btn">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
+          </a>
         </nav>
       </div>
     </header>
@@ -158,7 +161,7 @@
       </div>
     </footer>
 
-    <script src="./modal.js"></script>
+    <script src="./index.js"></script>
 
   </body>
 

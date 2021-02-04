@@ -274,7 +274,39 @@ button {
   max-width: 100%;
 }
 .header__nav {
+  /* up to 992px nav elements = not displayed (except for burger btn)  */
   /* after 992px : nav elements in row */
+}
+@media screen and (max-width: 992px) {
+  .header__nav {
+    /* DEFAULT */
+    /* ACTIVE : class is added in JS when burger btn is clicked*/
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+  .header__nav--default a:not(.burger) {
+    display: none;
+  }
+  .header__nav--active {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: #fff;
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .header__nav--active a:not(.burger) {
+    display: block;
+  }
+  .header__nav--active a {
+    font-size: 1rem;
+  }
 }
 @media screen and (min-width: 992px) {
   .header__nav {
@@ -286,18 +318,9 @@ button {
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
   }
-}
-.header__nav .burger {
-  /* after 992px : burger menu = not visible */
-}
-@media screen and (min-width: 992px) {
   .header__nav .burger {
+    /* after 992px : burger menu = not visible */
     display: none;
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
   }
 }
 .header__nav .burger i {
@@ -330,13 +353,23 @@ button {
   }
 }
 .header__nav a:not(.burger) {
-  /* mobile/tablet : nav elements = not visible */
+  /* mobile/tablet : nav elements = default : not visible => burger btn click: visible */
+  /*  @include max-992px{ display: none; } */
   padding: 8px 16px;
-  margin: auto;
 }
 @media screen and (max-width: 992px) {
   .header__nav a:not(.burger) {
-    display: none;
+    margin: 5vh auto;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 992px) {
+  .header__nav a:not(.burger) {
+    margin: auto;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;

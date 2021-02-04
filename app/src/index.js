@@ -1,6 +1,7 @@
-
 /* ------------------------------------- */
-/* burger nav toggle */
+/* ------------------------------------- */
+/* BURGER NAV TOGGLE */
+/* ------------------------------------- */
 /* ------------------------------------- */
 
 /* function editNav() {
@@ -12,19 +13,40 @@
   }
 }
 
-// DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
+/* 
+up to 992px : burger nav btn is visible
+/ header nav is not displayed by default
 
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+when user clicks burger nav btn : 
+- header nav gets displayed 
+- burger nav btn shifts to a 'cancel'/'close' icon btn
+- then used to come back to default 
 
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
+*/
+
+/* burger btn */
+var burgerBtn = document.getElementById("burger-btn");
+/* header nav */
+var headerNav = document.getElementById("header__nav");
+/* burger not active by default */
+var burgerIsActive = false;
+/* click event to toggle burger */
+burgerBtn.addEventListener('click', toggleBurgerNav);
+
+
+function toggleBurgerNav(event) {
+  event.stopPropagation();
+  event.preventDefault();
+  /* check if burger active */
+  if (!burgerIsActive ) { // if not
+    headerNav.classList.replace("header__nav--default","header__nav--active");
+    burgerIsActive = true;
+  } else { // if active
+    headerNav.classList.replace("header__nav--active", "header__nav--default");
+    burgerIsActive = false;
+  }
 }
- */
+
 
 
 
@@ -80,12 +102,6 @@ document.addEventListener('input', function(event) {
   inputsTouched = true;
   console.log('Some fields have been touched!');
 })
-
-
-/* LISTEN FOR INPUTS CORRECTION AFTER SUBMIT  */
-function checkInputsEditing(event) {
-
-}
 
 
 /* CLOSE MODAL ON CANCEL BTN */
