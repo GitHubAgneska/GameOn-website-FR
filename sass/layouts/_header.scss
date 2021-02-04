@@ -19,10 +19,14 @@
     &__nav {
         /* up to 992px nav elements = not displayed (except for burger btn)  */
         @include max-992px {
-            /* DEFAULT CLASS */
-            &--default { a:not(.burger) { display: none ;} }
+            /* DEFAULT CLASS : burger nav = toggled off */
+            &--default { 
+                a:not(.burger) { display: none ;} /* nav elements = not displayed */
+                .burger i.fa-bars { @include icon-base; } /* burger icon: when displayed = flex  */
+                .burger i.fa-times { display: none;  } /* cancel icon not displayed by default  */
+            }
             
-            /* ACTIVE CLASS : class is added in JS when burger btn is clicked */
+            /* ACTIVE CLASS : added by JS when burger btn is clicked */
             &--active {
                 a:not(.burger) { display: block ;}
                 @include flex-col-nowrap;
@@ -31,6 +35,8 @@
                 width: 100%; height: 100%;
                 top: 0;left: 0;
                 a { font-size:1rem; }
+                .burger i.fa-bars { display: none; }/* burger icon: when class active = not displayed   */
+                .burger i.fa-times { @include icon-base; }/* cancel icon: when class active = flex  */
             }
         }
 
@@ -43,10 +49,8 @@
             }
         }
 
-
         .burger i { 
                 color: $red-main;
-                @include icon-base;
                 /* xs-viewport: burger icon = 18px */
                 @include max-375px { @include icon-size; }
                 /* xs-viewport onwards : burger icon = 5% viewport */
@@ -56,9 +60,8 @@
             padding: 8px 16px;
             @include max-992px {margin: 5vh auto;}
             @include min-992px {margin: auto; }
-            
         }
-        a.active { 
+        a.active, a:not(.burger):hover { 
             background-color: $red-main;
             color: $white;
             @include border-radius((5px));
