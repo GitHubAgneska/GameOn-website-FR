@@ -4,25 +4,6 @@
 /* ------------------------------------- */
 /* ------------------------------------- */
 
-/* function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
-/* 
-up to 992px : burger nav btn is visible
-/ header nav is not displayed by default
-
-when user clicks burger nav btn : 
-- header nav gets displayed 
-- burger nav btn shifts to a 'cancel'/'close' icon btn
-- then used to come back to default 
-
-*/
 
 /* burger btn */
 var burgerBtn = document.getElementById("burger-btn");
@@ -38,7 +19,7 @@ function toggleBurgerNav(event) {
   event.stopPropagation();
   event.preventDefault();
   /* check if burger active */
-  if (!burgerIsActive ) { // if not
+  if (!burgerIsActive ) { // if not active
     headerNav.classList.replace("header__nav--default","header__nav--active");
     burgerIsActive = true;
   } else { // if active

@@ -279,15 +279,29 @@ button {
 }
 @media screen and (max-width: 992px) {
   .header__nav {
-    /* DEFAULT */
-    /* ACTIVE : class is added in JS when burger btn is clicked*/
+    /* DEFAULT CLASS : burger nav = toggled off */
+    /* ACTIVE CLASS : added by JS when burger btn is clicked */
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
   }
+  .header__nav--default {
+    /* nav elements = not displayed */
+    /* burger icon: when displayed = flex  */
+    /* cancel icon not displayed by default  */
+  }
   .header__nav--default a:not(.burger) {
+    display: none;
+  }
+  .header__nav--default .burger i.fa-bars {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .header__nav--default .burger i.fa-times {
     display: none;
   }
   .header__nav--active {
@@ -300,12 +314,23 @@ button {
     height: 100%;
     top: 0;
     left: 0;
+    /* burger icon: when class active = not displayed   */
+    /* cancel icon: when class active = flex  */
   }
   .header__nav--active a:not(.burger) {
     display: block;
   }
   .header__nav--active a {
     font-size: 1rem;
+  }
+  .header__nav--active .burger i.fa-bars {
+    display: none;
+  }
+  .header__nav--active .burger i.fa-times {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media screen and (min-width: 992px) {
@@ -325,10 +350,6 @@ button {
 }
 .header__nav .burger i {
   color: #FE142F;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
   /* xs-viewport: burger icon = 18px */
   /* xs-viewport onwards : burger icon = 5% viewport */
 }
@@ -353,8 +374,6 @@ button {
   }
 }
 .header__nav a:not(.burger) {
-  /* mobile/tablet : nav elements = default : not visible => burger btn click: visible */
-  /*  @include max-992px{ display: none; } */
   padding: 8px 16px;
 }
 @media screen and (max-width: 992px) {
@@ -377,7 +396,7 @@ button {
     -o-transition: all 1s ease-in-out;
   }
 }
-.header__nav a.active {
+.header__nav a.active, .header__nav a:not(.burger):hover {
   background-color: #FE142F;
   color: #fff;
   border-radius: 5px;
