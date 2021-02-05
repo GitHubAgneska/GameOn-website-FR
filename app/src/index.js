@@ -182,6 +182,29 @@ function validateFormInputs() {
     valid.email = true;
   }
 
+  /* CHECK PHONE FIELD IS VALID */
+   /* locate concerned dom element */
+  const phoneNumber = document.getElementById('phone');
+  /* describe its validation conditions :  */
+  // string should contain only digits
+  const phoneCorrectFormat = /^\d+$/;
+  // & be 10 chars long
+  const phoneCorrectLength = 10;
+  const phoneTest = phoneNumber.value.length == 10 && phoneCorrectFormat.test(phoneNumber.value);
+
+  if (!phoneTest ) {
+    /* mark fiels as not valid */
+    phone.isValid = false;
+    /* call function to set error in field */
+    setRequirementsMessage('phone');
+    /* add element to array  */
+    notValid.push(phone);
+  } else {
+    /* if field valid : set field in valid object to true */
+    valid.phone = true;
+  }
+
+
   /* CHECK DOB FIELD IS VALID */
   /* locate concerned dom element */
   const birthdate = document.getElementById('birthdate');
@@ -238,7 +261,7 @@ function validateFormInputs() {
 
     } else { 
       /* if field valid : set field in valid object to true */
-      valid.locations = true;
+      valid.locations = true; 
     }
 
      /* CHECK USER AGREEMENT FIELD IS VALID */
@@ -273,8 +296,12 @@ function validateFormInputs() {
           isFormValid = false;
           break; /* stop loop as error was found */
         }
-        isFormValid = true; /* else no errors in validation process: form is valid */
+        /* else no errors in validation process AND 'notValid' array is empty : form is valid */
+        if (!notValid) {
+          isFormValid = true; 
+        }
       }
+      console.log('ISVALID==', isFormValid);
       return isFormValid;
 }  
 /* ------------------- end of validateFormInputs() function---------------------------- */
@@ -286,12 +313,12 @@ function validateFormInputs() {
 function setRequirementsMessage(id) {
   /* locate concerned dom element (id param) */
   var elementFromId = document.getElementById(id);
-  console.log('SET elementFromId ==', elementFromId);
+  // console.log('SET elementFromId ==', elementFromId);
 
   /* locate corresponding '.requirement' class element 
   ( = first immediate following id ('#id + .class') or descending class attribute ('#id > .class') */
   var requirement = document.querySelector( '#'+ id  + '+ .requirements') || document.querySelector( '#'+ id  + ' > .requirements');
-  console.log('SET REQUIREMENT=', requirement);
+  // console.log('SET REQUIREMENT=', requirement);
 
   /* if requirements are NOT already visible  */
   if ( ! elementFromId.requirementIsVisible ) {
@@ -309,12 +336,12 @@ function setRequirementsMessage(id) {
 function removeRequirementsMessage(id) {
   /* locate concerned dom element (id param) */
   var elementFromId = document.getElementById(id);
-  console.log('RM - elementFromId ==', elementFromId);
+  // console.log('RM - elementFromId ==', elementFromId);
 
   /* locate corresponding '.requirement' class element 
   ( = first immediate following id ('#id + .class') or descending class attribute ('#id > .class') */
   var requirement = document.querySelector('#'+ id  + '+ .requirements') || document.querySelector( '#'+ id  + ' > .requirements');
-  console.log('REQUIREMENT=', requirement);
+  // console.log('REQUIREMENT=', requirement);
 
   requirement.style.visibility = 'hidden';
   elementFromId.style.border = 'none';
@@ -338,12 +365,12 @@ sendFormDataBtn.addEventListener('click', function(event){
   event.stopPropagation();
 
   /* validate fields on submit : validateFormInputs() returns a boolean that gets stored in local var */
-  var isFormValid = validateFormInputs();  
+  var isFormValid = validateFormInputs();
 
   // If the form did not validate, prevent it being submitted
   if ( !isFormValid ) { // isFormValid = false
-    event.preventDefault(); // Prevent the form being submitted
-    return isFormValid; // store form state
+    event.preventDefault(); // Prevent the form being submitted;
+    return;
     } else { // isFormValid = true
       createNewUserFromData(); // create new user array
 
