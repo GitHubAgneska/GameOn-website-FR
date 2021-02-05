@@ -565,7 +565,7 @@ footer .copyright-wrapper p {
   height: 90px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field:not(.locations), .signUp-modal-wrapper__fields-wrapper form .field:not(.check) {
-  height: 75px;
+  min-height: 75px;
 }
 .signUp-modal-wrapper__fields-wrapper form .field {
   margin: 5% 0;

@@ -46,10 +46,10 @@
                     flex-flow: row wrap; 
                     .choice { 
                         margin-right: 10px; min-height: 30px;
-                    } 
+                    }
                 }
                 .field.check { height:90px; }
-                .field:not(.locations), .field:not(.check) { height:75px;}
+                .field:not(.locations), .field:not(.check) { min-height:75px;}
                 .field {
                     margin: 5% 0;
                     /* all text input fields + date = one liner elements */
