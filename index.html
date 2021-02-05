@@ -119,7 +119,7 @@
             <div class="field locations" id="locations">
 
               <label for="location">which location?</label>
-              <div class="requirements">Please select a location</div>
+              <div class="requirements requirements--location">Please select a location</div>
 
               <div class="choice">
                 <input type="radio" name="location" id="newYork" value="new York"><label class="city" for="new york">new york</label>
@@ -142,15 +142,13 @@
             </div>
 
             <div class="field check" id="checkbox">
-              <div>
-                <input type="checkbox" name="lorem1" id="lorem1">
-                <label class="lorem" for="lorem1">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
-              </div>
-              <div class="requirements">Please check the user agreement</div>
-              <div>
+              <input type="checkbox" name="lorem1" id="lorem1">
+              <label class="lorem" for="lorem1">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
+              
+              <div class="requirements requirements--checkbox">Please check the user agreement</div>
+
               <input type="checkbox" name="lorem2" id="lorem2">
               <label class="lorem" for="lorem2">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
-              </div>
             </div>
 
           </form>

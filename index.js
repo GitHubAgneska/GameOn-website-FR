@@ -325,6 +325,12 @@ function setRequirementsMessage(id) {
     /* set element's requirements attributes to be visible */
     requirement.style.visibility = 'visible';
     elementFromId.style.border = '2px solid red';
+
+    /* last 2 fields are added padding when requirements = on  */
+    if ( id == 'locations' ||  id == 'checkbox' ) { 
+      elementFromId.style.padding = "2%";
+      elementFromId.style.borderRadius = "5px";
+    }
     /* store requirements visibility as on */
     elementFromId.requirementIsVisible = true;
     /* if requirements are already visible, don't do anything */

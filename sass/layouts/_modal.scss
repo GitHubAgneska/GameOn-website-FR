@@ -131,6 +131,8 @@
                         color: $red-main;
                         font-style: italic;
                         transition: 0.28s;
+                        &--location { width:50%; }
+                        &--checkbox { margin-left: 35px; padding-top: 0;}
                     }
                 }
             }

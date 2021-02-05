@@ -686,6 +686,13 @@ footer .copyright-wrapper p {
   font-style: italic;
   transition: 0.28s;
 }
+.signUp-modal-wrapper__fields-wrapper form .field .requirements--location {
+  width: 50%;
+}
+.signUp-modal-wrapper__fields-wrapper form .field .requirements--checkbox {
+  margin-left: 35px;
+  padding-top: 0;
+}
 .signUp-modal-wrapper__fields-wrapper .confirmation-message-wrapper {
   height: 80vh;
   margin-left: 35px;
