@@ -151,6 +151,8 @@ button {
   border-radius: 8px;
   /* @include box-shadow; */
   /* padding: 0% 3%; */
+  /* confirm box close modal btns */
+  /* clear fix */
 }
 @media screen and (max-width: 600px) {
   .btn {
@@ -220,6 +222,23 @@ button {
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
   }
+}
+.btn--confirm {
+  display: inline-block;
+  width: 50px;
+  height: 2rem;
+  text-transform: uppercase;
+}
+.btn--confirm.yes {
+  background-color: #78010e;
+}
+.btn--confirm.no {
+  float: right;
+}
+.btn--confirm:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* ================================== */
@@ -519,7 +538,6 @@ footer .copyright-wrapper p {
   .signUp-modal-wrapper__fields-wrapper {
     width: 550px;
     max-width: 100%;
-    height: 850px;
     margin: 3vh auto;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
@@ -713,13 +731,32 @@ footer .copyright-wrapper p {
   display: none;
   /* default */
   position: absolute;
-  top: 20px;
+  top: 0;
   z-index: 5;
   height: 200px;
-  width: 80%;
   margin: 10%;
-  background-color: #FE142F;
-  border-radius: 5px;
+  background-color: #fff;
+  flex-flow: column nowrap;
+  border-radius: 25px;
+  box-shadow: 0px 12px 10px #232323;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+@media screen and (max-width: 600px) {
+  .signUp-modal-wrapper__fields-wrapper .confirBox-cancelModal {
+    width: 80%;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+.signUp-modal-wrapper__fields-wrapper .confirBox-cancelModal h2 {
+  text-align: center;
 }
 .signUp-modal-wrapper__fields-wrapper .confirBox-cancelModal h2, .signUp-modal-wrapper__fields-wrapper .confirBox-cancelModal .btns-wrapper {
   width: 80%;
@@ -828,7 +865,7 @@ header {
 .homepage-content-wrapper {
   width: 85vw;
   margin: 0 auto;
-  /*  100vh - header+footer height */
+  /*  = 100vh - (header+footer height) */
   /* FYI :
       FOOTER : max-600px {height: 8.25vh;} / min-600px {height: 14.65vh;} */
   /*  HEADER : max-600px { height:12vh;} / min-600px { height: 15vh; } */
@@ -876,6 +913,21 @@ header {
 @media screen and (min-width: 1200px) {
   .homepage-content-wrapper .presentation {
     justify-content: center;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 768px) {
+  .homepage-content-wrapper .presentation {
+    box-shadow: 0px 12px 10px #232323;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
@@ -959,7 +1011,7 @@ header {
     position: absolute;
     z-index: -1;
     background-color: #232323;
-    /* + dark block on img left */
+    /* + dark block on img left side */
     transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;

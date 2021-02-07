@@ -28,4 +28,19 @@
         @include min-600px {height: 38px; }
         @include min-1200px {width: 200px;}
     }
+    /* confirm box close modal btns */
+    &--confirm {
+        display: inline-block;
+        width: 50px;
+        height: 2rem;
+        text-transform: uppercase;
+    }
+    &--confirm.yes { background-color: darken($red-main, 30%)}
+    &--confirm.no { float: right; }
+     /* clear fix */
+    &--confirm:after {
+            content: "";
+            display: table;
+            clear: both;
+    }
 }
