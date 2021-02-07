@@ -49,11 +49,15 @@ header { width:100%;}
         flex-flow: column nowrap;
         overflow: hidden;
         @include max-1200px { justify-content: space-between; }
-        @include min-1200px { justify-content: center; }
+        @include min-1200px { justify-content: space-evenly; @include border-radius(5px); }
         @include min-768px { @include box-shadow; }
         
         &__page-title { 
-            @include min600px-max1200px { background-color: $dark; border-top-left-radius: 5px;border-top-right-radius: 5px;}
+            @include min600px-max1200px { 
+                background-color: $dark;
+                border-top-left-radius: 5px;border-top-right-radius: 5px;
+                h1 { padding: 2%; }
+            }
             @include min-1200px { max-width: 660px; }  
         }
         &__page-subtitle {
@@ -73,10 +77,10 @@ header { width:100%;}
                 z-index:-1;
                 background-color: $dark; /* + dark block on img left side */
             }
-            @include min600px-max1200px { top: 150px;}
-            @include min-1200px { top: 0; }
+            @include min600px-max1200px { top: 150px; bottom: 0; }
+            @include min-1200px { height: 100%; }
             /* force img to the right */
-            picture { @include min-1200px {display: flex; flex-direction: row-reverse;}}
+            picture { @include min-1200px {display: flex; flex-direction: row-reverse; height: 100%;}}
             picture img {
                 border-radius: 5px;
                 width: 100%;
