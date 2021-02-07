@@ -709,6 +709,22 @@ footer .copyright-wrapper p {
   font-size: 3rem;
   color: #fff;
 }
+.signUp-modal-wrapper__fields-wrapper .confirBox-cancelModal {
+  display: none;
+  /* default */
+  position: absolute;
+  top: 20px;
+  z-index: 5;
+  height: 200px;
+  width: 80%;
+  margin: 10%;
+  background-color: #FE142F;
+  border-radius: 5px;
+}
+.signUp-modal-wrapper__fields-wrapper .confirBox-cancelModal h2, .signUp-modal-wrapper__fields-wrapper .confirBox-cancelModal .btns-wrapper {
+  width: 80%;
+  margin: auto;
+}
 .signUp-modal-wrapper .btn-wrapper {
   padding-bottom: 20px;
 }

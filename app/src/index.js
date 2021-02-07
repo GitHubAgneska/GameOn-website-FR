@@ -44,6 +44,14 @@ var signUpmodal= document.getElementById("signUp-modal");
 var openModalSignUpbtn= document.getElementById("signupBtn");
 /* cancel btn to close modal */
 var cancelModalBtn= document.getElementById("cancelModalBtn");
+
+/* confirmation to cancel when inputs have been touched */
+var confirmBox = document.getElementById('confirBox-cancelModal');
+confirmBox.isVisible = false; /* default */
+var confirmBoxYesBtn = document.getElementById('yes-btn');
+var confirmBoxNoBtn = document.getElementById('no-btn');
+
+
 /* form */
 var signUpForm = document.forms[0]; // or -  document.getElementById('signUp-form');
 /* go btn to send form data */
@@ -85,22 +93,29 @@ document.addEventListener('input', function(event) {
 })
 
 
+
+
+
 /* CLOSE MODAL ON CANCEL BTN */
 cancelModalBtn.addEventListener('click', function(event){
     event.stopPropagation();
-
+    event.preventDefault();
     /* before closing, check if fields = touched */
     if (inputsTouched) { 
       /* if touched, ask for confirmation  */
-      confirm('are you sure you want to close modal?');
+      /* trigger confirmBox */
+      confirmBox.style.display = 'block';
+      confirmBox.isVisible = true;
       /* if user hits 'cancel' (no) */
-      if(!confirm) {  }
-      else {/* if user hits 'OK' */
-        /* close modal + reset form */
-        signUpmodal.setAttribute("style", "animation: fade-out 0.6s;");
+      confirmBoxNoBtn.onclick = function() { confirmBox.style.display = 'none';confirmBox.isVisible = false;}
+      /* if user hits 'OK' */
+      confirmBoxYesBtn.onclick = function() {
+        /* shortcut for : */
+        /* close modal*/
+        // signUpmodal.setAttribute("style", "animation: fade-out 0.6s;");
         /* reset form fields */
-        signUpForm.reset();
-
+        // signUpForm.reset();
+        location.reload();
       }
       /* if untouched, just close modal  */
     } else { signUpmodal.setAttribute("style", "animation: fade-out 0.6s;")};

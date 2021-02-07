@@ -147,6 +147,19 @@
                 h1 {font-family: "DMSans-regular", Arial, sans-serif;
                     font-size: 3rem; color: $white; }
             }
+            .confirBox-cancelModal {
+                display:none;/* default */
+                position:absolute;
+                top:20px;
+                z-index:5;
+                height:200px;width:80%;
+                margin:10%;
+                background-color: $red-main;
+                @include border-radius(5px);
+                h2, .btns-wrapper {
+                    width:80%;margin:auto;
+                }          
+            }
         }
         .btn-wrapper {padding-bottom: 20px; }
         .btn-wrapper .submit-btn {@include mlmr-auto; height:30px;  }
