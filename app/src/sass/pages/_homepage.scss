@@ -32,7 +32,7 @@ header { width:100%;}
 .homepage-content-wrapper {
     width: 85vw;
     margin: 0 auto;
-    @include max-600px { height: 80vh; }/*  100vh - header+footer height */
+    @include max-600px { height: 80vh; }/*  = 100vh - (header+footer height) */
     @include min-600px { height: 70vh; }
     /* FYI :
         FOOTER : max-600px {height: 8.25vh;} / min-600px {height: 14.65vh;} */
@@ -50,6 +50,7 @@ header { width:100%;}
         overflow: hidden;
         @include max-1200px { justify-content: space-between; }
         @include min-1200px { justify-content: center; }
+        @include min-768px { @include box-shadow; }
         
         &__page-title { 
             @include min600px-max1200px { background-color: $dark; border-top-left-radius: 5px;border-top-right-radius: 5px;}
@@ -70,7 +71,7 @@ header { width:100%;}
                 width:100%;
                 position: absolute; 
                 z-index:-1;
-                background-color: $dark; /* + dark block on img left */
+                background-color: $dark; /* + dark block on img left side */
             }
             @include min600px-max1200px { top: 150px;}
             @include min-1200px { top: 0; }

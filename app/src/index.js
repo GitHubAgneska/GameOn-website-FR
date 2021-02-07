@@ -4,7 +4,6 @@
 /* ------------------------------------- */
 /* ------------------------------------- */
 
-
 /* burger btn */
 var burgerBtn = document.getElementById("burger-btn");
 /* header nav */
@@ -27,8 +26,6 @@ function toggleBurgerNav(event) {
     burgerIsActive = false;
   }
 }
-
-
 
 
 /* ------------------------------------- */
@@ -94,8 +91,6 @@ document.addEventListener('input', function(event) {
 
 
 
-
-
 /* CLOSE MODAL ON CANCEL BTN */
 cancelModalBtn.addEventListener('click', function(event){
     event.stopPropagation();
@@ -104,7 +99,7 @@ cancelModalBtn.addEventListener('click', function(event){
     if (inputsTouched) { 
       /* if touched, ask for confirmation  */
       /* trigger confirmBox */
-      confirmBox.style.display = 'block';
+      confirmBox.style.display = 'flex';
       confirmBox.isVisible = true;
       /* if user hits 'cancel' (no) */
       confirmBoxNoBtn.onclick = function() { confirmBox.style.display = 'none';confirmBox.isVisible = false;}
