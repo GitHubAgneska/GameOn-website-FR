@@ -276,22 +276,25 @@ function validateFormInputs() {
 
      /* CHECK USER AGREEMENT FIELD IS VALID */
     /* locate concerned dom element */
-    const checkbox = document.getElementById('lorem1');
+    const lorem1 = document.getElementById('lorem1');
+    const checkboxes = document.getElementById('checkboxes');
     /* & describe its validation condition  (user agreement checkbox must be checked ) */
-    const userAgreementTest = document.querySelector('input[type="checkbox"]:checked');
+    const userAgreementTest = document.querySelector('input[name="lorem1"]:checked');
 
     /* if test fails (no box checked) */
     if ( !userAgreementTest ) { 
        /* mark fiels as not valid */
-        checkbox.isValid = false;
+        lorem1.isValid = false;
         /* call function to set error in field */
-        setRequirementsMessage('checkbox');
+        /* here, the error message will englobe both checkboxes */
+        /* although only the first one is concerned */
+        setRequirementsMessage('checkboxes');
         /* add input element to array to then add event listener */
-        notValid.push(checkbox);
+        notValid.push(checkboxes);
 
       } else { 
         /* if field valid : set field in valid object to true */
-        valid.checkbox = true;
+        valid.lorem1 = true;
       }
 
       /* add input event on every field input marked as invalid */
@@ -337,7 +340,7 @@ function setRequirementsMessage(id) {
     elementFromId.style.border = '2px solid red';
 
     /* last 2 fields are added padding when requirements = on  */
-    if ( id == 'locations' ||  id == 'checkbox' ) { 
+    if ( id == 'locations' ||  id == 'checkboxes' ) { 
       elementFromId.style.padding = "2%";
       elementFromId.style.borderRadius = "5px";
     }
