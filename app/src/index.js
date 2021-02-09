@@ -54,12 +54,11 @@ var signUpForm = document.forms[0]; // or -  document.getElementById('signUp-for
 /* go btn to send form data */
 var sendFormDataBtn= document.getElementById("goBtn");
 
+var isFormValid = false;
 /* dom elements: INPUTS */
 var inputs = document.getElementById('signUp-form').elements;
 var inputsTouched = false;
 
-/* dom elements: requirements  */
-var requirementIsVisible = false;
 
 /* confirmation message (after submit passed) */
 var signedUpConfirmationMessage = document.getElementById('confirmation-message-wrapper');
@@ -83,12 +82,12 @@ openModalSignUpbtn.onclick = function() {
 
 
 /* CHECKING IF FIELDS HAVE BEEN TOUCHED (before closing modal) */
+
 document.addEventListener('input', function(event) {
   event.stopPropagation();
   inputsTouched = true;
   console.log('Some fields have been touched!');
 })
-
 
 
 /* CLOSE MODAL ON CANCEL BTN */
@@ -132,7 +131,7 @@ function validateFormInputs() {
   /* store fields marked as invalid in array */
   var notValid = [];
   /*  store form state */
-  var isFormValid = false;
+  var isFormValid;
   
   /* DEFINITION OF EACH FIELD'S CUSTOM VALIDATION */
   /* ------------------------------------------------------ */
@@ -144,10 +143,9 @@ function validateFormInputs() {
   /* what happens if not valid */
   if ( !firstNameValid ) { 
     /* mark fiels as not valid */
-    firstName.isValid = false;
+    valid.firstName = false;
     /* call function to set error in field */
     setRequirementsMessage('firstName');
-    firstName.requirementIsVisible = true;
     /* add element to array  */
     notValid.push(firstName);
 
@@ -164,7 +162,7 @@ function validateFormInputs() {
   /* what happens if not valid */
   if ( !lastNameValid ) { 
     /* mark fiels as not valid */
-    lastName.isValid = false;
+    valid.lastName = false;
     /* call function to set error in field */
     setRequirementsMessage('lastName');
     /* add element to array  */
@@ -182,7 +180,7 @@ function validateFormInputs() {
   const emailTest = (email.value).match(emailCorrectFormat);
   if ( !emailTest ) {  
     /* mark fiels as not valid */
-    email.isValid = false;
+    valid.email = false;
     /* call function to set error in field */
     setRequirementsMessage('email');
     /* add element to array  */
@@ -200,11 +198,11 @@ function validateFormInputs() {
   const phoneCorrectFormat = /^\d+$/;
   // & be 10 chars long
   const phoneCorrectLength = 10;
-  const phoneTest = phoneNumber.value.length == 10 && phoneCorrectFormat.test(phoneNumber.value);
+  const phoneTest = phoneCorrectLength && phoneCorrectFormat.test(phoneNumber.value);
 
   if (!phoneTest ) {
     /* mark fiels as not valid */
-    phone.isValid = false;
+    valid.phone = false;
     /* call function to set error in field */
     setRequirementsMessage('phone');
     /* add element to array  */
@@ -224,7 +222,7 @@ function validateFormInputs() {
   
   if ( !birthdateTest ) { 
     /* mark fiels as not valid */
-    birthdate.isValid = false;
+    valid.birthdate = false;
     /* call function to set error in field */
     setRequirementsMessage('birthdate');
     /* add element to array  */
@@ -242,7 +240,7 @@ function validateFormInputs() {
 
   if ( !tournamentsTest ) {
       /* mark fiels as not valid */
-      tournaments.isValid = false;
+      valid.tournaments = false;
       /* call function to set error in field */
       setRequirementsMessage('tournaments');
       /* add element to array  */
@@ -263,7 +261,7 @@ function validateFormInputs() {
   if ( !locationChecked ) { 
   /* if ( !locationTest ) {  */
       /* mark fiels as not valid */
-      locations.isValid = false;
+      valid.locations = false;
       /* call function to set error in field */
       setRequirementsMessage('locations');
       /* add element to array  */
@@ -284,7 +282,7 @@ function validateFormInputs() {
     /* if test fails (no box checked) */
     if ( !userAgreementTest ) { 
        /* mark fiels as not valid */
-        lorem1.isValid = false;
+        valid.lorem1 = false;
         /* call function to set error in field */
         /* here, the error message will englobe both checkboxes */
         /* although only the first one is concerned */
@@ -297,24 +295,26 @@ function validateFormInputs() {
         valid.lorem1 = true;
       }
 
-      /* add input event on every field input marked as invalid */
-      /* so when USER EDITS it again, requirement message disappears */
-      /* until next submit */ 
-      notValid.forEach(x => x.addEventListener('input', function() { removeRequirementsMessage(x.id) }));
+      /* If 'notvalid' array is not empty */
+      if (notValid) {
+        /* add input event on every field input marked as invalid */
+        /* so when USER EDITS it again, requirement message disappears */
+        notValid.forEach(x => {
+          x.addEventListener('input', function() { removeRequirementsMessage(x.id), false })
+        });
+      }
 
-      /* CAN FORM BE SUBMITTED? :  */
+      /* CAN FORM BE SUBMITTED? :  */ 
       /* LOOP THROUGH 'VALID' OBJECT : if any error, set 'isFormValid' to false */
       for ( var field in valid ) { 
         if ( !valid[field] ) {
           isFormValid = false;
           break; /* stop loop as error was found */
         }
-        /* else no errors in validation process AND 'notValid' array is empty : form is valid */
-        if (!notValid) {
+        /* else no errors in validation process: form is valid */
           isFormValid = true; 
-        }
       }
-      console.log('ISVALID==', isFormValid);
+      // console.log('ISVALID==', isFormValid);
       return isFormValid;
 }  
 /* ------------------- end of validateFormInputs() function---------------------------- */
@@ -333,21 +333,15 @@ function setRequirementsMessage(id) {
   var requirement = document.querySelector( '#'+ id  + '+ .requirements') || document.querySelector( '#'+ id  + ' > .requirements');
   // console.log('SET REQUIREMENT=', requirement);
 
-  /* if requirements are NOT already visible  */
-  if ( ! elementFromId.requirementIsVisible ) {
-    /* set element's requirements attributes to be visible */
-    requirement.style.visibility = 'visible';
-    elementFromId.style.border = '2px solid red';
+  /* set element's requirements attributes to be visible */
+  requirement.style.visibility = 'visible';
+  elementFromId.style.border = '2px solid red';
 
-    /* last 2 fields are added padding when requirements = on  */
-    if ( id == 'locations' ||  id == 'checkboxes' ) { 
-      elementFromId.style.padding = "2%";
-      elementFromId.style.borderRadius = "5px";
-    }
-    /* store requirements visibility as on */
-    elementFromId.requirementIsVisible = true;
-    /* if requirements are already visible, don't do anything */
-  } else { return ;}
+  /* last 2 fields are added padding when requirements = on  */
+  if ( id == 'locations' ||  id == 'checkboxes' ) { 
+    elementFromId.style.padding = "2%";
+    elementFromId.style.borderRadius = "5px";
+  }
 }
 
 /* if field valid after correction or being edited : HIDE its REQUIREMENTS  */
@@ -364,14 +358,6 @@ function removeRequirementsMessage(id) {
 
   requirement.style.visibility = 'hidden';
   elementFromId.style.border = 'none';
-
-  /* CHECK MESSAGE VISIBLE  */
-  /* if field's requirements are visible  */
-  // if ( elementFromId.requirementIsVisible ) {
-    /* set element's requirements attributes to be invisible */
-  //   requirementIsVisible = false;
-  /* if requirements are already NOT visible  */
-  // } else { return ;}
 }
 
 
