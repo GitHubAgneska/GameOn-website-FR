@@ -66,6 +66,7 @@ var signedUpConfirmationMessage = document.getElementById('confirmation-message-
 var closeConfirmationBtn = document.getElementById('goBtn');
 
 
+
 /* Affiliated functions ------------ */
 
 /* On modal page load/reload : RESET FORM */
@@ -398,6 +399,8 @@ sendFormDataBtn.addEventListener('click', function(event){
         signUpForm.style.display = 'block';
         /* reset form fields */
         signUpForm.reset();
+        /* default btn text */
+        closeConfirmationBtn.value = 'go'; 
       })
     }
   });
@@ -414,6 +417,7 @@ sendFormDataBtn.addEventListener('click', function(event){
     
       /* make object out of each of input value */
       for ( var i = 0 ; i < inputs.length; i++ ) {
+        console.log('input[i] ==',inputs[i] );
         console.log('input[i].value==',inputs[i].value );
         var newInputObject = new Object();
     
@@ -429,9 +433,9 @@ sendFormDataBtn.addEventListener('click', function(event){
           var locationChecked = document.querySelector('input[name="location"]:checked');
           newInputObject.value = locationChecked.value;
     
-        /* checkbox input value is true or false */
+        /* checkbox input is checked or not */
         } else if (inputs[i].type == 'checkbox' ) {
-          newInputObject.value = document.querySelector('input[type="checkbox"]:checked').value;
+          if ( inputs[i].checked)  { newInputObject.value = 'true' } else newInputObject.value = 'false';
         }
         /* push each new field object to user array  */
         /* if value is not empty  ( because of multiple radio input fields ... )*/
